@@ -174,10 +174,13 @@ h3{font-size:clamp(1.2rem,1.8vw,1.5rem)}
 }
 h4,h5,h6{font-size:1.125rem}
 p,li{font-size:var(--text-base)}
-.site-header{background:var(--bg-white);position:fixed;top:0;left:0;right:0;width:100%;min-height:70px;z-index:1100;border-bottom:1px solid rgba(0,0,0,.04);transform:translateY(0);transition:transform .36s cubic-bezier(.2,.9,.25,1),box-shadow .28s ease,opacity .24s ease;will-change:transform,opacity;box-sizing:border-box}
-.site-header .container{width:100%;max-width:none;margin:0;display:flex;align-items:center;justify-content:space-between;padding:.75rem var(--page-padding);box-sizing:border-box;min-height:70px}
+.site-header{background:var(--bg-white);position:fixed;top:0;left:0;right:0;width:100%;min-height:70px;z-index:1100;border-bottom:1px solid rgba(0,0,0,.04);transform:translateY(0);transition:transform .36s cubic-bezier(.2,.9,.25,1),box-shadow .28s ease,opacity .24s ease, min-height .3s ease;will-change:transform,opacity;box-sizing:border-box}
+.site-header .container{width:100%;max-width:none;margin:0;display:flex;align-items:center;justify-content:space-between;padding:.75rem var(--page-padding);box-sizing:border-box;min-height:70px;transition:padding .3s ease, min-height .3s ease}
 .site-header.visible{transform:translateY(0);opacity:1;box-shadow:0 6px 22px rgba(0,0,0,.09);pointer-events:auto}
 .site-header.hidden{transform:translateY(calc(-1 * var(--header-hide-offset, 110%)));opacity:0;pointer-events:none}
+.site-header.scrolled{min-height:55px}
+.site-header.scrolled .container{min-height:55px;padding:.35rem var(--page-padding)}
+.site-header.scrolled .logo img{max-height:38px !important}
 .logo{display:flex;align-items:center}
 .logo img{
   max-height:48px; /* limit height but allow intrinsic scaling */
@@ -187,6 +190,7 @@ p,li{font-size:var(--text-base)}
   display:block;
   object-fit:contain; /* ensure the image fits its box without distortion */
   flex-shrink:0; /* prevent flexbox from squashing the logo */
+  transition:max-height .3s ease;
 }
 .nav-toggle{display:inline-block;background:transparent;border:0;font-size:1.5rem;transform:translateY(-20px);opacity:0;animation:slideDown .58s cubic-bezier(.15,.8,.3,1.1) forwards;animation-delay:.12s;position:relative;z-index:50;text-shadow:0 2px 8px rgba(0,0,0,.08)}
 .main-nav{display:none}

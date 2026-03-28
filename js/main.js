@@ -49,16 +49,29 @@ document.addEventListener('DOMContentLoaded',function(){
     let lastY = window.scrollY;
     let ticking = false;
     let hidden = false;
+    let scrolled = false;
     window.addEventListener('scroll', ()=>{
       if(ticking) return;
       ticking = true;
       requestAnimationFrame(()=>{
         const y = window.scrollY;
-        if(y > lastY && y > header.offsetHeight + 20){
-          if(!hidden){ header.classList.add('hidden'); header.classList.remove('visible'); hidden = true; }
+        
+        if(y > 50){
+          if(!scrolled){ header.classList.add('scrolled'); scrolled = true; }
+        } else {
+          if(scrolled){ header.classList.remove('scrolled'); scrolled = false; }
+        }
+
+        if(window.innerWidth < 900){
+          if(y > lastY && y > header.offsetHeight + 20){
+            if(!hidden){ header.classList.add('hidden'); header.classList.remove('visible'); hidden = true; }
+          } else {
+            if(hidden){ header.classList.remove('hidden'); header.classList.add('visible'); hidden = false; }
+          }
         } else {
           if(hidden){ header.classList.remove('hidden'); header.classList.add('visible'); hidden = false; }
         }
+        
         lastY = y <= 0 ? 0 : y;
         ticking = false;
       });
