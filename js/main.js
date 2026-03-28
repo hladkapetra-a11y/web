@@ -2,43 +2,14 @@
 document.addEventListener('DOMContentLoaded',function(){
   // Menu toggle: header may be injected asynchronously (include-fragments.js),
   // so bind when the element is available. Use MutationObserver as fallback.
-  function bindNavToggle(){
-    const navToggle = document.querySelector('.nav-toggle');
-    const nav = document.getElementById('main-nav');
-    if(!navToggle || !nav) return false;
-    // avoid double-binding
-    if(navToggle.dataset.bound === '1') return true;
-    navToggle.dataset.bound = '1';
-    navToggle.addEventListener('click', ()=>{
-      const expanded = navToggle.getAttribute('aria-expanded') === 'true';
-      navToggle.setAttribute('aria-expanded', String(!expanded));
-      if(!expanded){
-        nav.style.display = 'block';
-        nav.classList.add('animating');
-        setTimeout(()=>nav.classList.remove('animating'), 600);
-      } else {
-        nav.style.display = 'none';
-      }
-    });
-    return true;
-  }
-
-  if(!bindNavToggle()){
-    // watch for injected header
-    const obs = new MutationObserver(function(mutations, observer){
-      if(bindNavToggle()) observer.disconnect();
-    });
-    obs.observe(document.documentElement || document.body, {childList:true, subtree:true});
-  }
-
-  // Fixed header: always at top and hide/show on scroll
-  (function(){
-    const header = document.querySelector('.site-header');
-    if(!header) return;
+  let scrollInitialized = false;
+  function initScroll(header){
+    if(scrollInitialized) return;
+    scrollInitialized = true;
+    
     // ensure header is visible initially
     header.classList.add('visible');
     // set body top padding to header height so content doesn't jump under the fixed header
-    // also set CSS var so the hide transform can use exact header height for smooth sliding
     const setSpacing = ()=>{
       const h = header.offsetHeight;
       document.body.style.paddingTop = h + 'px';
@@ -46,10 +17,12 @@ document.addEventListener('DOMContentLoaded',function(){
     };
     setSpacing();
     window.addEventListener('resize', setSpacing);
+    
     let lastY = window.scrollY;
     let ticking = false;
     let hidden = false;
     let scrolled = false;
+    
     window.addEventListener('scroll', ()=>{
       if(ticking) return;
       ticking = true;
@@ -76,7 +49,42 @@ document.addEventListener('DOMContentLoaded',function(){
         ticking = false;
       });
     });
-  })();
+  }
+
+  function bindNavToggle(){
+    const navToggle = document.querySelector('.nav-toggle');
+    const nav = document.getElementById('main-nav');
+    const header = document.querySelector('.site-header');
+    
+    if(header) {
+      initScroll(header);
+    }
+    
+    if(!navToggle || !nav) return false;
+    // avoid double-binding
+    if(navToggle.dataset.bound === '1') return true;
+    navToggle.dataset.bound = '1';
+    navToggle.addEventListener('click', ()=>{
+      const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+      navToggle.setAttribute('aria-expanded', String(!expanded));
+      if(!expanded){
+        nav.style.display = 'block';
+        nav.classList.add('animating');
+        setTimeout(()=>nav.classList.remove('animating'), 600);
+      } else {
+        nav.style.display = 'none';
+      }
+    });
+    return true;
+  }
+
+  if(!bindNavToggle()){
+    // watch for injected header
+    const obs = new MutationObserver(function(mutations, observer){
+      if(bindNavToggle()) observer.disconnect();
+    });
+    obs.observe(document.documentElement || document.body, {childList:true, subtree:true});
+  }
 
   // contact form honeypot and basic validation
   const form = document.getElementById('contactForm');
