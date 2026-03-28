@@ -1,4 +1,4 @@
-// Small vanilla JS for interactivity: menu toggle, form honeypot check, cookie consent
+// Small vanilla JS for interactivity: menu toggle, form honeypot check
 document.addEventListener('DOMContentLoaded',function(){
   // Menu toggle: header may be injected asynchronously (include-fragments.js),
   // so bind when the element is available. Use MutationObserver as fallback.
@@ -81,18 +81,6 @@ document.addEventListener('DOMContentLoaded',function(){
         e.preventDefault();
         alert('Vyplňte prosím povinná pole: jméno a kontakt.');
       }
-    });
-  }
-
-  // cookie consent (simple)
-  if(!localStorage.getItem('cookieConsent')){
-    const banner = document.createElement('div');
-    banner.className = 'cookie-banner';
-    banner.innerHTML = '<div class="container"><span>Používáme cookies pro zlepšení služeb. Pokračováním souhlasíte.</span> <button id="acceptCookies" class="btn btn-primary">Souhlasím</button></div>';
-    document.body.appendChild(banner);
-    document.getElementById('acceptCookies').addEventListener('click', ()=>{
-      localStorage.setItem('cookieConsent','1');
-      banner.remove();
     });
   }
 

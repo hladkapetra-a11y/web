@@ -122,8 +122,8 @@
 }
 /* Base - mobile first */
 *{box-sizing:border-box}
-html{font-family:var(--font-body);color:var(--text);font-size:16px}
-body{margin:0;background:var(--bg-1);line-height:var(--leading-normal);-webkit-font-smoothing:antialiased}
+html{font-family:var(--font-body);color:var(--text);font-size:16px;overflow-x:hidden}
+body{margin:0;background:var(--bg-1);line-height:var(--leading-normal);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 .skip-link{position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden}
 .skip-link:focus{left:1rem;top:1rem;width:auto;height:auto;background:var(--bg-white);padding:.5rem 1rem;border-radius:var(--radius-sm);z-index:100}
 .container{width:var(--container-mobile);margin:0 auto;max-width:1440px}
@@ -914,6 +914,8 @@ section:not(.hero){padding-top:var(--section-gap);padding-bottom:var(--section-g
 @keyframes slideDown{
   0%{transform:translateY(-24px);opacity:0}
   70%{transform:translateY(2px);opacity:1}
+  100%{transform:translateY(0);opacity:1}
+}
 
 /* Detailed responsive rules for header/navigation across many viewport sizes.
    Mobile-first approach: base styles handle smallest screens; these breakpoints
@@ -1019,8 +1021,6 @@ section:not(.hero){padding-top:var(--section-gap);padding-bottom:var(--section-g
   .main-nav a{width:100%;display:inline-block}
 }
 
-  100%{transform:translateY(0);opacity:1}
-}
 @keyframes slideDownMenu{
   0%{transform:translateY(-100%);opacity:0}
   70%{transform:translateY(4px);opacity:1}
