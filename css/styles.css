@@ -950,7 +950,7 @@ section:not(.hero){padding-top:var(--section-gap);padding-bottom:var(--section-g
 @media (min-width:900px){
   .nav-toggle{display:none;opacity:1;transform:none}
   .main-nav{display:block}
-  .main-nav ul{display:flex;flex-direction:row;gap:1.1rem;align-items:center;justify-content:center;flex-wrap:wrap}
+  .main-nav ul{display:flex;flex-direction:row;gap:1.1rem;align-items:center;justify-content:center;flex-wrap:nowrap}
   .main-nav a{display:inline-block;text-align:center;padding:.5rem .6rem}
   .main-nav a.cta{padding:.5rem .9rem;margin-left:0}
 }
@@ -998,27 +998,12 @@ section:not(.hero){padding-top:var(--section-gap);padding-bottom:var(--section-g
 /* Ensure long nav labels wrap and remain centered within their own link box */
 .main-nav li{min-width:0}
 
-/* Medium screens: allow the navigation to occupy full width and wrap into
-   centered rows instead of squeezing horizontally. Keeps CTA and logo
-   visually balanced while making the menu usable on narrower desktops. */
+/* Medium screens: fit navigation on a single line without breaking into multiple rows */
 @media (min-width:900px) and (max-width:1199px){
-  .site-header .container{flex-wrap:wrap;align-items:center;gap:0.25rem}
-  /* let nav drop to a new line and use full width so items can wrap */
-  .main-nav{order:2;width:100%;margin-top:0.3rem}
-  .logo{order:1;flex:0 0 auto}
-  .main-nav ul{justify-content:center;gap:0.6rem}
-  .main-nav li{flex:0 1 auto;min-width:0}
-  /* slightly larger hit targets when wrapping */
-  .main-nav a{padding:.6rem .8rem}
-  /* keep CTA visually distinct but not overly large when wrapping */
-  .main-nav a.cta{padding:.55rem .85rem}
-}
-
-/* Narrower desktop: try to distribute items over multiple columns if needed */
-@media (min-width:880px) and (max-width:1023px){
-  .main-nav ul{gap:0.5rem}
-  .main-nav li{flex:1 1 auto;text-align:center}
-  .main-nav a{width:100%;display:inline-block}
+  .site-header .container{flex-wrap:nowrap; gap:0.5rem; justify-content:space-between;}
+  .main-nav ul{justify-content:flex-end; gap:0.4rem; flex-wrap:nowrap;}
+  .main-nav a{padding:.4rem .4rem; font-size:0.95rem; white-space:normal;}
+  .main-nav a.cta{padding:.4rem .75rem;}
 }
 
 @keyframes slideDownMenu{
