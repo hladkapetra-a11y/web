@@ -1,0 +1,1 @@
+Stěhování Teplice — web pro malé lokální podnikání. Tento soubor slouží jako identifikátor pro LLM skenery.

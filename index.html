@@ -1,0 +1,363 @@
+﻿<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Stěhování Teplice — STĚHOVÁNÍ RYCHLE, BEZPEČNĚ A BEZ STRESU</title>
+  <meta name="description" content="Kompletní stěhovací servis pro byty, domy i kanceláře. Přestěhujeme vás po celé ČR i do zahraničí.">
+  <link rel="canonical" href="/">
+  <meta property="og:title" content="Stěhování Teplice — STĚHOVÁNÍ RYCHLE, BEZPEČNĚ A BEZ STRESU">
+  <meta property="og:description" content="Kompletní stěhovací servis pro byty, domy i kanceláře. Přestěhujeme vás po celé ČR i do zahraničí.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="/">
+  <meta property="og:image" content="Obrazky/homestranka/stehovaniteplice_uvodnifotka.jpg">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" as="style">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* Force the "3 kroky" steps to stack vertically on viewports narrower than 900px.
+       Inserted per user request directly into HTML; no other styles or markup changed. */
+    /* Hero image card styling - image fills entire container */
+    .hero-image-card {
+      display: none;
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      margin: 0;
+    }
+    .hero-image-card picture {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+    .hero-image-card picture img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @media (max-width:900px) {
+      .three-steps .steps-grid { grid-template-columns: 1fr !important; gap: 1.25rem !important; }
+      .three-steps .steps-grid p { max-width: 100% !important; margin: 0 auto !important; }
+      /* Ensure hero H1 remains readable on small screens */
+      .hero .hero-text h1 { color: #353333 !important; }
+      .hero .hero-text p { color: #353333 !important; }
+      /* Make page background white on small screens */
+      body { background-color: #ffffff !important; }
+      /* Hide primary hero media on small screens but keep the alternate hero-image-card visible */
+      .hero-media, .hero-media picture, .hero-media img { display: none !important; }
+      .hero-image-card { display: block !important; }
+      .hero { background-color: #ffffff !important; background-image: none !important; }
+    }
+
+    /* STEP / 3-KROKY styles copied from css/styles.css so they're available inline
+       on pages where external CSS may be overridden or removed. */
+    .three-steps .steps-grid{display:grid;grid-template-columns:1fr;gap:1.5rem;text-align:center}
+    .three-steps .step-circle{width:48px;height:48px;background:var(--accent);color:var(--text-light);border-radius:var(--radius-full);display:inline-flex;align-items:center;justify-content:center;font-weight:var(--font-extrabold);font-size:var(--text-lg);margin:0 auto 1rem;transition:transform var(--transition-base),box-shadow var(--transition-fast)}
+    /* Hover effect removed as requested */
+    .three-steps .steps-grid h3{margin:0 0 .6rem;color:var(--text-dark);font-size:var(--text-lg)}
+    .three-steps .steps-grid p{color:var(--text-muted);margin:0 auto;max-width:280px}
+    @media(min-width:720px){.three-steps .steps-grid{grid-template-columns:repeat(3,1fr)}}
+  </style>
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Stěhováni v ČR",
+    "telephone": "+420 720 417 446",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Tyršova 1833/6",
+      "addressLocality": "Teplice",
+      "postalCode": "415 01",
+      "addressRegion": "CZ"
+    },
+    "url": "/",
+    "logo": "Obrazky/logo/Stehovaniteplice_cerne.jpg",
+    "sameAs": []
+  }
+  </script>
+</head>
+<body class="home">
+  <a class="skip-link" href="#main-content">Přejít na obsah</a>
+  <div data-include="header"></div>
+
+  <main id="main-content">
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <h1>STĚHOVÁNÍ RYCHLE, BEZPEČNĚ A BEZ STRESU</h1>
+          <p class="lead" style="font-size: 19px;">Kompletní stěhovací servis pro byty, domy i kanceláře. Přestěhujeme vás po celé ČR i do zahraničí.</p>
+          <a class="btn btn-primary" style="font-weight: bold;" href="/kontakt.html">OBJEDNAT STĚHOVÁNÍ</a>
+        </div>
+        <div class="hero-media">
+          <picture>
+            <source srcset="Obrazky/homestranka/stehovaniteplice_uvodnifotka.jpg" type="image/jpeg">
+            <img src="Obrazky/homestranka/stehovaniteplice_uvodnifotka.jpg" alt="Stěhování Teplice - ilustrační foto" class="hero-img" loading="eager">
+          </picture>
+        </div>
+        <div class="hero-image-card">
+          <picture>
+            <source srcset="Obrazky/homestranka/stehovaniteplice_uvodnifotka.jpg" type="image/jpeg">
+            <img src="Obrazky/homestranka/stehovaniteplice_uvodnifotka.jpg" alt="Stěhování Teplice - ilustrační foto" loading="eager">
+          </picture>
+        </div>
+      </div>
+    </section>
+
+    <section class="intro container">
+      <div class="intro-main">
+        <h2 class="no-underline text-left mb-3" style="padding-bottom: 2.5rem;">STĚHOVÁNÍ NEMUSÍ BÝT NOČNÍ MŮRA</h2>
+        <p class="lead">Půjčená dodávka, která nejede? Kamarádi, co nemůžou? Riziko, že si zničíte věci, za ten stres nestojí. Váš čas a klid mají větší cenu než jedna ušetřená stovka.</p>
+
+        <div class="benefits" aria-hidden="false">
+          <div class="benefit">
+            <div class="icon" aria-hidden="true">
+              <img src="Obrazky/homestranka/zkusenosti.svg" alt="" width="40" height="40">
+            </div>
+            <div>
+              <h4>Zkušenosti</h4>
+              <p>Stovky úspěšných zakázek v ČR i EU.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <aside>
+        <div class="price-card price-card">
+          <h2 class="no-underline text-center mb-3">Transparentní ceny</h2>
+          <div class="price-item price-item-alt">
+            <span class="label">Auto s řidičem</span>
+            <span class="price">400 Kč/hod</span>
+          </div>
+
+          <div class="price-item price-item-alt">
+            <span class="label">Každý pracovník</span>
+            <span class="price">400 Kč/hod</span>
+          </div>
+
+          <div class="price-info">
+            <p class="muted text-center mt-1 font-italic" style="font-size:1.05rem; font-weight:600;">Žádné skryté poplatky za patra nebo víkendy.</p>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="services container">
+      <div class="text-center mb-10" style="margin-bottom: 3rem;">
+        <h2 class="text-center mb-3">Kam vás přestěhujeme?</h2>
+      </div>
+
+      <div class="cards grid-2">
+        <!-- Card 1 -->
+        <article class="card custom-card">
+          <div class="card-top">
+            <div class="icon-circle" aria-hidden="true">
+              <img src="Obrazky/homestranka/stehovaniCR.svg" alt="" width="48" height="48">
+            </div>
+          </div>
+
+          <h3>STĚHOVÁNÍ PO CELÉ ČR</h3>
+          <p>Bezpečně vás přestěhujeme z Teplic do Prahy, Brna nebo na druhý konec republiky. Zajistíme kompletní logistiku, nakládku i vykládku tak, aby pro vás vzdálenost nebyla překážkou. </p>
+
+          <a class="btn btn-outline" href="/stehovani-v-cr.html">TRASY A CENY V ČR</a>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="card custom-card">
+          <div class="card-top">
+            <div class="icon-circle" aria-hidden="true">
+              <img src="Obrazky/homestranka/stehovanimezinarodni.svg" alt="" width="48" height="48">
+            </div>
+          </div>
+
+          <h3>MEZINÁRODNÍ STĚHOVÁNÍ</h3>
+          <p>Specializujeme se na stěhování do zahraničí, zejména do Německa, Rakouska, Nizozemska a Švýcarska. S naší autodopravou do 3,5 tuny a zkušenostmi s evropskými trasami doručíme vaše věci spolehlivě kamkoli po Evropě. </p>
+
+          <a class="btn btn-outline" href="/stehovani-v-zahranici.html">STĚHOVÁNÍ DO ZAHRANIČÍ</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="other-services container" aria-label="Další služby v areálu">
+      <h2 class="text-center mb-3" style="margin-bottom: 3rem;">Další služby v našem areálu</h2>
+
+      <div class="service-grid service-grid--three">
+        <article class="service-card">
+          <div class="icon" aria-hidden="true">
+            <img src="Obrazky/homestranka/pujcovnavoziku.svg" alt="" width="40" height="40">
+          </div>
+          <h3>PŮJČOVNA PŘÍVĚSNÝCH VOZÍKŮ</h3>
+          <p>Potřebujete převézt materiál nebo nábytek vlastními silami? Nabízíme k pronájmu udržované a spolehlivé přívěsné vozíky pro různé typy nákladu přímo v našem areálu</p>
+          <a class="link-underline" href="/pujcovna-privesnych-voziku.html">CENÍK PŮJČOVNY</a>
+        </article>
+
+        <article class="service-card">
+          <div class="icon" aria-hidden="true">
+            <img src="Obrazky/homestranka/pujcovnakaravanu.svg" alt="" width="40" height="40">
+          </div>
+          <h3>PRONÁJEM KARAVANU</h3>
+          <p>Užijte si svobodu na cestách. Naše karavany jsou plně vybavené, čisté a připravené na vaše dobrodružství kdekoli po Evropě. Ideální pro rodinnou dovolenou i výlet s přáteli.</p>
+          <a class="link-underline" href="/pujceni-karavanu.html">PROHLÉDKOUT KARAVAN</a>
+        </article>
+
+        <article class="service-card">
+          <div class="icon" aria-hidden="true">
+            <img src="Obrazky/homestranka/propanbutanlahve.svg" alt="" width="40" height="40">
+          </div>
+          <h3>PRODEJ PROPAN-BUTANOVÝCH LAHVÍ</h3>
+          <p>Zajišťujeme prodej a výměnu propan-butanových lahví pro grilování, vaření nebo vytápění. Rychlá obsluha přímo na naší provozovně v Ústí nad Labem – Střekov.</p>
+          <a class="link-underline" href="/prodej-propan-butanovych-lahvi.html">PRODEJ PROPAN-BUTANOVÝCH LAHVÍ</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="three-steps container" aria-label="3 kroky k novému domovu">
+      <h2 class="text-center mb-3" style="margin-bottom: 3rem;">3 kroky k novému domovu</h2>
+
+      <div class="steps-grid">
+        <div>
+          <div class="step-circle">1</div>
+          <h3>Poptávka a konzultace</h3>
+          <p>Stačí vyplnit krátký formulář nebo nám zavolat. Probereme rozsah stěhování, vaše časové možnosti a specifické požadavky (těžká břemena, křehké kusy nebo mezinárodní trasa).</p>
+        </div>
+
+        <div>
+          <div class="step-circle">2</div>
+          <h3>Plán a kalkulace zdarma</h3>
+          <p>Navrhneme nejefektivnější postup a termín. Zdarma pro vás připravíme odhad ceny, který vychází z našich transparentních sazeb (300 Kč/hod za auto i pracovníka). Žádná překvapení na konci.</p>
+        </div>
+
+        <div>
+          <div class="step-circle">3</div>
+          <h3>Realizace bez starostí</h3>
+          <p>V domluvený čas přijedeme. Bezpečně převezeme vaše věci do nového místa. Vy se jen postaráte o klíče.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq container faq-container" aria-label="Často kladené otázky">
+      <h2 class="text-center mb-3" style="margin-bottom: 3rem;">Často se ptáte (FAQ)</h2>
+      <div class="space-y-3">
+
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-header">
+            <h3>Jak velkou máte dodávku? Vejde se tam všechno najednou?</h3>
+            <i data-lucide="chevron-down" class="chevron faq-chevron"></i>
+          </div>
+          <div class="faq-content">
+            <p class="faq-answer">Používáme moderní vozy do 3,5 tuny. Jsou dostatečně prostorné pro standardní byt, a přitom dostatečně obratné, aby projely úzkými ulicemi v Teplicích nebo Ústí. U větších zakázek prostě otočíme trasu vícekrát nebo nasadíme více vozů.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-header">
+            <h3>Stěhujete i těžké předměty (piána, trezory)?</h3>
+            <i data-lucide="chevron-down" class="chevron faq-chevron"></i>
+          </div>
+          <div class="faq-content">
+            <p class="faq-answer">Ano, poradíme si i s těžkými břemeny. Jen nás o tom prosím informujte předem v poptávce, abychom vzali správnou techniku a dostatek silných rukou.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-header">
+            <h3>Co když mi stěhováci něco rozbijí?</h3>
+            <i data-lucide="chevron-down" class="chevron faq-chevron"></i>
+          </div>
+          <div class="faq-content">
+            <p class="faq-answer">Jsme profesionálové a dáváme maximální pozor. Pro klid duše jsme ale plně pojištěni pro případ poškození nákladu. Pokud by se něco stalo, škodu vyřešíme za vás.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-header">
+            <h3>Musím nábytek předem rozebrat?</h3>
+            <i data-lucide="chevron-down" class="chevron faq-chevron"></i>
+          </div>
+          <div class="faq-content">
+            <p class="faq-answer">Nemusíte. Pokud je nábytek příliš velký pro průchod dveřmi nebo hrozí jeho poškození, naši pracovníci ho odborně demontují a v novém místě zase složí.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-header">
+            <h3>Jak dlouho dopředu si musím termín rezervovat?</h3>
+            <i data-lucide="chevron-down" class="chevron faq-chevron"></i>
+          </div>
+          <div class="faq-content">
+            <p class="faq-answer">Čím dříve, tím lépe – hlavně u víkendů. Obvykle ale dokážeme najít volné místo i v horizontu několika dní. Stačí zavolat.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-header">
+            <h3>Počítáte si příplatky za patra bez výtahu?</h3>
+            <i data-lucide="chevron-down" class="chevron faq-chevron"></i>
+          </div>
+          <div class="faq-content">
+            <p class="faq-answer">Ne. U nás platí transparentní hodinová sazba 300 Kč/osoba. Je nám jedno, jestli jdeme do přízemí nebo do pátého patra. Čas běží stejně a vy neplatíte žádné "schodišťové" bonusy.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-header">
+            <h3>Můžu jet v dodávce s vámi?</h3>
+            <i data-lucide="chevron-down" class="chevron faq-chevron"></i>
+          </div>
+          <div class="faq-content">
+            <p class="faq-answer">Z bezpečnostních a pojistných důvodů přepravujeme v kabině pouze naši posádku. Rádi se s vámi ale potkáme přímo na místě vykládky.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <div data-include="footer"></div>
+  </main>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Jak velkou máte dodávku? Vejde se tam všechno najednou?",
+        "acceptedAnswer": {"@type":"Answer","text":"Používáme moderní vozy do 3,5 tuny. Jsou dostatečně prostorné pro standardní byt, a přitom dostatečně obratné, aby projely úzkými ulicemi v Teplicích nebo Ústí. U větších zakázek prostě otočíme trasu vícekrát nebo nasadíme více vozů."}
+      },
+      {
+        "@type": "Question",
+        "name": "Stěhujete i těžké předměty (piána, trezory)?",
+        "acceptedAnswer": {"@type":"Answer","text":"Ano, poradíme si i s těžkými břemeny. Jen nás o tom prosím informujte předem v poptávce, abychom vzali správnou techniku a dostatek silných rukou."}
+      },
+      {
+        "@type": "Question",
+        "name": "Co když mi stěhováci něco rozbijí?",
+        "acceptedAnswer": {"@type":"Answer","text":"Jsme profesionálové a dáváme maximální pozor. Pro klid duše jsme ale plně pojištěni pro případ poškození nákladu. Pokud by se něco stalo, škodu vyřešíme za vás."}
+      }
+    ]
+  }
+  </script>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    // Initialize Lucide icons
+    if (typeof lucide !== 'undefined') lucide.createIcons();
+
+    // Toggle single FAQ item (allow multiple open)
+    function toggleFaq(element) {
+      element.classList.toggle('active');
+    }
+    // Optionally: close others when opening one (uncomment below)
+    // document.querySelectorAll('.faq-item').forEach(item => item.addEventListener('click', function(){ document.querySelectorAll('.faq-item').forEach(i=>{ if(i!==this) i.classList.remove('active') }); this.classList.toggle('active'); }));
+  </script>
+
+  <script src="js/main.js" defer></script>
+  <script src="js/include-fragments.js" defer></script>
+</body>
+</html>

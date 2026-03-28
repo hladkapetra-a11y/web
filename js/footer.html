@@ -1,0 +1,115 @@
+<style>
+  /* Footer uses the site's font variables (set in css/styles.css) */
+  .footer-bg {
+    background-color: #00312b;
+    color: #fff;
+    font-family: var(--font-body);
+    padding: 4rem 1.5rem;
+    position: relative; /* allow absolute-positioning the bottom copyright */
+  }
+
+  .footer-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .footer-column h3, .footer-column h4 { margin: 0 0 0.5rem 0; }
+  
+  .brand-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .brand-title {
+    font-size: 1.125rem;
+    font-weight: 800;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+
+  .muted-sm { color: #8c9a97; font-size: 1rem; }
+
+  .icon { width: 1.25rem; height: 1.25rem; color: #2dd4bf; }
+
+  /* Use site accent for contact links so phone/email colors match the rest of the site */
+  .contact-link { color: var(--accent); text-decoration: none; display:flex; gap:.5rem; align-items:center; }
+
+  @media (min-width: 768px) {
+    .footer-container { grid-template-columns: repeat(3, 1fr); }
+  }
+  .footer-bottom {
+    /* Place the footer-bottom as a normal grid item that spans all columns
+       so it sits below the columns instead of overlapping content. */
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 0.5rem 0;
+    margin-top: 1rem;
+  }
+</style>
+
+<footer class="footer-bg">
+  <div class="footer-container">
+
+    <!-- Column 1: Brand / short description -->
+    <div class="footer-column">
+      <div class="brand-row">
+        <div>
+          <img src="/Obrazky/logo/biledopaticky.png" alt="Stěhování Teplice logo" style="height:40px; width:auto;">
+        </div>
+      </div>
+      <p class="muted-sm" style="max-width:18rem; margin-top:.75rem;">
+        Spolehlivé stěhování a autodoprava do 3,5 tuny se sídlem v Ústí nad Labem.
+      </p>
+      <p class="muted-sm" style="margin-top:.75rem; font-weight:600;">IČ: 01478010</p>
+    </div>
+
+    <!-- Column 2: Location -->
+    <div class="footer-column">
+      <h4 class="muted-sm" style="font-weight:700; letter-spacing:.12em; text-transform:uppercase;">Kde nás najdete?</h4>
+      <div style="margin-top:1rem;">
+        <div style="display:flex; gap:.75rem; align-items:flex-start; margin-bottom:.5rem;">
+          <i data-lucide="map-pin" class="icon" style="margin-top:.15rem;"></i>
+          <div>
+            <p class="muted-sm" style="font-weight:700; margin:0;">Areál kuchyně Macháček (vedle DEK)</p>
+            <p class="muted-sm" style="margin:0;">Tyršova 1833/6, 415 01 Teplice</p>
+          </div>
+        </div>
+        <div style="display:flex; gap:.75rem; align-items:flex-start;">
+          <i data-lucide="clock" class="icon" style="margin-top:.15rem;"></i>
+          <div>
+            <p class="muted-sm" style="margin:0 0 .35rem 0;">Po-Pá: 9:30-16:30</p>
+            <p class="muted-sm" style="margin:0;">So: po tel. domluvě</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Column 3: Contact -->
+    <div class="footer-column">
+      <h4 class="muted-sm" style="font-weight:700; letter-spacing:.12em; text-transform:uppercase;">Kontakt</h4>
+      <div style="margin-top:1rem; display:flex; flex-direction:column; gap:.5rem;">
+        <div style="display:flex; gap:.5rem; align-items:center;">
+          <i data-lucide="user" class="icon"></i>
+          <span class="muted-sm">Jan Plachý</span>
+        </div>
+        <a href="tel:+420720417446" class="contact-link" style="display:flex; gap:.5rem; align-items:center;">
+          <i data-lucide="phone" class="icon"></i>
+          <span style="font-weight:600; color: #fff;">+420 720 417 446</span>
+        </a>
+        
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="muted-sm" style="margin:0;">© 2026 Stěhování Teplice | Všechna práva vyhrazena | Vyrobila: Petra Hovorková</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Lucide icons -->
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>if(window.lucide) lucide.createIcons();</script>

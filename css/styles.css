@@ -1,0 +1,1674 @@
+:root {
+
+  /* =====================================================================
+     COLORS — Brand palette
+     ===================================================================== */
+
+  /* Primary — teal brand color */
+  --color-primary:        #00958C;
+  --color-primary-hover:  #007a72;
+  --color-primary-dark:   #006b64;
+
+  /* Secondary — deep navy accent */
+  --color-secondary:      #002577;
+  --color-secondary-hover:#001d60;
+
+  /* Accent — slightly lighter teal used for highlights and icons */
+  --accent:               #0d9488;
+  --accent-hover:         #0f766e;
+  /* Light tint of the accent used for subtle hover backgrounds (use only root colors) */
+  --accent-08:            rgba(13,148,136,0.08);
+
+  /* Backgrounds */
+  --bg-1:                 #F3F6F7; /* page / section background */
+  /* CTA-specific background color (use this for isolated CTA blocks) */
+  --bg-cta:               #002577;
+  --bg-2:                 #D2DDDF; /* subtle contrast band */
+  --bg-white:             #ffffff;
+  --bg-surface:           #fbfdfd; /* elevated card surface */
+  --footer-bg:            #003D39;
+
+  /* Text */
+  --text:                 #333333; /* default body text */
+  --text-muted:           #415252; /* secondary / helper text */
+  --text-dark:            #003d33; /* headings and strong labels */
+  --text-light:           #ffffff; /* text on dark backgrounds */
+
+  /* Borders */
+  --border-color:         #e6eeef;
+  --border-color-light:   #f1f5f9;
+
+  /* =====================================================================
+     TYPOGRAPHY
+     ===================================================================== */
+
+  /* Font families */
+  /* Use Inter as the single site font for body and headings */
+  --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  --font-heading: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+
+  /* Font sizes — fluid-friendly base scale */
+  --text-xs:   0.9375rem; /* 15 px — minimum na celém webu */
+  --text-sm:   1rem;      /* 16 px — doprovodné / vedlejší texty */
+  --text-base: 1.1875rem;  /* 19 px — hlavní tělo textu (upraveno pro sjednocení) */
+  --text-md:   1.125rem;  /* 18 px — lead, tlačítka */
+  --text-lg:   1.25rem;   /* 20 px */
+  --text-xl:   1.5rem;    /* 24 px */
+  --text-2xl:  1.6rem;    /* ~26 px */
+  --text-3xl:  2rem;      /* 32 px */
+
+  /* Font weights */
+  --font-normal:    400;
+  --font-medium:    500;
+  --font-semibold:  600;
+  --font-bold:      700;
+  --font-extrabold: 800;
+
+  /* Line heights */
+  --leading-tight:   1.15;
+  --leading-normal:  1.6;
+  --leading-relaxed: 1.7;
+
+  /* =====================================================================
+     SPACING — 4 px base unit scale (multiples of 0.25 rem)
+     ===================================================================== */
+
+  --space-1:  0.25rem;  /*  4 px */
+  --space-2:  0.5rem;   /*  8 px */
+  --space-3:  0.75rem;  /* 12 px */
+  --space-4:  1rem;     /* 16 px */
+  --space-5:  1.25rem;  /* 20 px */
+  --space-6:  1.5rem;   /* 24 px */
+  --space-8:  2rem;     /* 32 px */
+  --space-10: 2.5rem;   /* 40 px */
+  --space-12: 3rem;     /* 48 px */
+  --space-16: 4rem;     /* 64 px */
+
+  /* Layout helpers */
+    /* Set a fixed horizontal gutter from the viewport edges. Use a pixel value so
+      left/right spacing remains constant across viewport sizes. Adjust as needed. */
+    --page-padding:      24px;  /* fixed horizontal inner padding for .container */
+    --section-gap:       2.5rem;  /* vertical spacing used between sections (reduced) */
+    /* Make container width full (constrained by max-width) so the fixed padding
+      defines the left/right spacing rather than a percentage-based width. */
+    --container-mobile:  100%;
+    --container-default: 100%;
+
+  /* =====================================================================
+     BORDERS & RADIUS
+     ===================================================================== */
+
+  --radius:      18px;  /* default card radius */
+  --radius-sm:   8px;
+  --radius-md:   12px;
+  --radius-lg:   20px;
+  --radius-full: 999px;
+
+  /* =====================================================================
+     SHADOWS
+     ===================================================================== */
+
+  --shadow-sm: 0 6px 18px rgba(0, 0, 0, .04);
+  --shadow-md: 0 8px 24px rgba(6, 11, 15, .06);
+  --shadow-lg: 0 18px 50px rgba(0, 0, 0, .12);
+  --shadow-xl: 0 30px 70px rgba(2, 20, 18, .12);
+
+  /* =====================================================================
+     TRANSITIONS
+     ===================================================================== */
+
+  --transition-fast: .18s ease;
+  --transition-base: .22s cubic-bezier(.2, .9, .3, 1);
+}
+/* Base - mobile first */
+*{box-sizing:border-box}
+html{font-family:var(--font-body);color:var(--text);font-size:16px}
+body{margin:0;background:var(--bg-1);line-height:var(--leading-normal);-webkit-font-smoothing:antialiased}
+.skip-link{position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden}
+.skip-link:focus{left:1rem;top:1rem;width:auto;height:auto;background:var(--bg-white);padding:.5rem 1rem;border-radius:var(--radius-sm);z-index:100}
+.container{width:var(--container-mobile);margin:0 auto;max-width:1440px}
+h1{font-family:var(--font-heading);font-weight:var(--font-extrabold);font-size:clamp(1.6rem,4vw,3.6rem);margin:0 0 .5rem}
+/* Headings */
+h2{
+  margin:0; /* reset default margins */
+  line-height:var(--leading-tight);
+  font-family:var(--font-heading);
+  font-weight:var(--font-bold);
+  font-size:clamp(1.25rem, 3.2vw, 2rem);
+  color:var(--text-dark);
+}
+h3{font-size:clamp(1.2rem,1.8vw,1.5rem)}
+/* CTA sekce — site-specific, higher-specificity rules for this page
+   This block replaces the previous minimal rule and provides a self-contained
+   set of styles for the CTA area so external rules won't break its appearance. */
+:root { --cta-bg: var(--bg-cta); --cta-cta-accent: var(--accent); --cta-radius: 12px; }
+
+/* Target the modifier so other pages using .cta-section remain unaffected */
+/* Navy dark blue background with strong !important to override any inline styles */
+.cta-section--site{ background:var(--bg-cta) !important; color:var(--text-light) !important; padding:4rem 1.25rem !important; text-align:center !important; border-radius:var(--cta-radius) !important; box-shadow:0 10px 30px rgba(2,10,30,0.12) !important; overflow:hidden !important }
+
+/* inner wrapper to constrain text width and center content */
+.cta-section--site .cta-inner{ max-width:980px; margin:0 auto; padding:0 1rem }
+
+/* Ensure h2 and our custom title are styled correctly */
+.cta-section--site h2,
+.cta-section--site .howto-section-title{ color:var(--text-light) !important; font-size:clamp(1.25rem,2.6vw,1.9rem) !important; margin-bottom:.6rem !important; text-transform:uppercase; letter-spacing:0.6px !important }
+
+.cta-section--site .cta-text{ font-size:1rem !important; margin:0 auto 1.5rem !important; max-width:820px !important; opacity:0.95 !important; color:var(--text-light) !important }
+
+.cta-section--site .contact-info{ display:flex !important; justify-content:center !important; gap:1.6rem !important; flex-wrap:wrap !important; align-items:center !important }
+
+.cta-section--site .contact-item{ display:inline-flex !important; align-items:center !important; gap:.6rem !important; text-decoration:none !important; color:var(--text-light) !important; font-size:1.05rem !important; font-weight:var(--font-bold) !important; padding:.7rem 1rem !important; border-radius:12px !important; background:rgba(255,255,255,0.04) !important; transition:transform .18s ease, background .18s ease, box-shadow .18s ease !important }
+.cta-section--site .contact-item:hover{ transform:translateY(-4px) !important; background:rgba(255,255,255,0.08) !important; box-shadow:0 8px 24px rgba(2,18,20,0.08) !important }
+
+/* make the phone / email icons slightly more visible on dark bg */
+.cta-section--site .icon{ width:24px !important; height:24px !important; stroke:var(--cta-cta-accent) !important; fill:none !important; stroke-width:2 !important }
+
+/* responsive adjustments */
+@media (max-width:768px){
+  .cta-section--site{ padding:2.25rem 1rem !important }
+  .cta-section--site h2,
+  .cta-section--site .howto-section-title{ font-size:1.25rem !important }
+  .cta-section--site .contact-info{ gap:1rem !important }
+  .cta-section--site .contact-item{ width:100% !important; justify-content:center !important }
+}
+h4,h5,h6{font-size:1.125rem}
+p,li{font-size:var(--text-base)}
+.site-header{background:var(--bg-white);position:fixed;top:0;left:0;right:0;width:100%;min-height:70px;z-index:1100;border-bottom:1px solid rgba(0,0,0,.04);transform:translateY(0);transition:transform .36s cubic-bezier(.2,.9,.25,1),box-shadow .28s ease,opacity .24s ease;will-change:transform,opacity;box-sizing:border-box}
+.site-header .container{width:100%;max-width:none;margin:0;display:flex;align-items:center;justify-content:space-between;padding:.75rem var(--page-padding);box-sizing:border-box;min-height:70px}
+.site-header.visible{transform:translateY(0);opacity:1;box-shadow:0 6px 22px rgba(0,0,0,.09);pointer-events:auto}
+.site-header.hidden{transform:translateY(calc(-1 * var(--header-hide-offset, 110%)));opacity:0;pointer-events:none}
+.logo{display:flex;align-items:center}
+.logo img{
+  max-height:48px; /* limit height but allow intrinsic scaling */
+  height:auto;      /* preserve aspect ratio */
+  width:auto;       /* don't force width */
+  max-width:100%;
+  display:block;
+  object-fit:contain; /* ensure the image fits its box without distortion */
+  flex-shrink:0; /* prevent flexbox from squashing the logo */
+}
+.nav-toggle{display:inline-block;background:transparent;border:0;font-size:1.5rem;transform:translateY(-20px);opacity:0;animation:slideDown .58s cubic-bezier(.15,.8,.3,1.1) forwards;animation-delay:.12s;position:relative;z-index:50;text-shadow:0 2px 8px rgba(0,0,0,.08)}
+.main-nav{display:none}
+.main-nav ul{list-style:none;padding:0;margin:0;display:flex;gap:1rem;align-items:center}
+.main-nav a{display:inline-block;text-align:center;vertical-align:middle;text-decoration:none;color:var(--text);padding:.5rem .6rem;border-radius:var(--radius-sm);white-space:normal;word-break:break-word;hyphens:auto;font-size:var(--text-base)}
+.main-nav a:hover{background:rgba(0,0,0,.03)}
+
+/* Highlighted CTA in header navigation */
+.main-nav a.cta{
+  background:var(--color-primary);
+  color:var(--text-light);
+  padding:.5rem .9rem;
+  border-radius:var(--radius-md);
+  font-weight:var(--font-bold);
+  box-shadow:0 8px 20px rgba(0,0,0,.12);
+  transition:transform var(--transition-fast),box-shadow var(--transition-fast),background-color var(--transition-fast);
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  white-space:nowrap;
+  margin-left:auto;
+}
+.main-nav a.cta:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(0,0,0,.14);background:var(--accent)}
+
+/* Increase header padding for vertical centering of all elements */
+@media (min-width:900px){
+  .site-header .container{padding:.9rem var(--page-padding)}
+}
+
+.hero{padding:3rem 0;position:relative;min-height:420px;display:flex;align-items:center;background-image:url("../Obrazky/homestranka/stehovaniteplice_uvodnifotka.jpg");background-size:cover;background-position:center center;color:var(--text-light)}
+.hero-inner{display:grid;grid-template-columns:1fr;gap:1rem;align-items:center;z-index:1}
+.hero::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.25) 35%, rgba(0,0,0,0.05) 100%)}
+.hero-img{width:100%;height:auto;border-radius:var(--radius);box-shadow:0 6px 18px rgba(0,0,0,.08);display:none}
+
+/* Hero image card — displays below text on mobile (under 900px) */
+.hero-image-card{
+  background:var(--bg-white);
+  border-radius:14px;
+  padding:1.25rem;
+  display:none; /* hidden by default; shown only under 900px */
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  box-shadow:var(--shadow-sm);
+  border-bottom:4px solid var(--accent);
+  transition:transform var(--transition-base),box-shadow var(--transition-base);
+}
+
+.hero-image-card:hover{
+  transform:translateY(-6px);
+  box-shadow:var(--shadow-lg);
+}
+
+.hero-image-card img{
+  width:100%;
+  height:auto;
+  border-radius:var(--radius);
+  display:block;
+}
+
+.lead{font-size:var(--text-md);margin:.5rem 0 1rem;color:inherit}
+.btn{display:inline-block;padding:.65rem 1rem;border-radius:var(--radius-md);background:var(--bg-white);border:1px solid rgba(0,0,0,.06);text-decoration:none;color:var(--text)}
+.btn-primary{background:var(--color-primary);color:var(--text-light);border:0;transition:transform var(--transition-fast),box-shadow var(--transition-fast);padding:1rem 1.6rem;font-size:var(--text-md)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(0,0,0,.12)}
+
+.hero-text{padding:1rem 0}
+.hero-text h1{line-height:1.1}
+.hero-text h1,.hero-text h2,.hero-text p{color:inherit}
+.hero-text .btn-primary{margin-top:1.25rem;display:inline-block}
+
+@media(min-width:900px){
+  .hero-inner{grid-template-columns:540px 1fr}
+  .hero-text{padding:2rem 0}
+  /* ensure text sits on the left over the background */
+  .hero-text h1{margin-bottom:.5rem}
+  /* display hero-media on desktop */
+  /* hide hero-media on desktop — show only on mobile via media query */
+  .hero-media{display:none !important}
+  /* ensure the actual img inside hero-media is visible on desktop */
+  .hero-img{display:block}
+  /* hide the new hero image card on desktop (hero-media displays instead) */
+  .hero-image-card{display:none !important}
+}
+
+/* Responsive logo sizing for smaller screens */
+@media(max-width:900px){
+  .logo img{max-height:40px}
+  /* allow header elements to wrap so nav can sit below when opened */
+  .site-header .container{flex-wrap:wrap}
+  .logo{order:1}
+  /* show the hero media on mobile (we use the card on desktop) */
+  .hero-media{display:block !important}
+  /* show the mobile hero image card */
+  .hero-image-card{display:flex !important}
+  .nav-toggle{order:2;margin-left:auto}
+  .main-nav{order:3;width:100%}
+}
+
+/* Mobile: stack nav items vertically with nicer hover/focus */
+@media(max-width:900px){
+  /* hidden by default; the toggle button (JS) will set inline display when opened */
+  .main-nav{display:none}
+  .main-nav.animating{animation:slideDownMenu .58s cubic-bezier(.15,.8,.3,1.1) forwards}
+  /* make items span full available width inside the container and add breathing room */
+  .main-nav ul{display:flex;flex-direction:column;gap:0.75rem;align-items:stretch;padding:0.5rem 0}
+  /* remove thin separators when using gap for spacing */
+  .main-nav li{border-top:0}
+  /* full-width links with inset padding; keep text centered visually */
+  .main-nav a{display:block;padding:1rem 1.25rem;border-radius:var(--radius-md);color:var(--text);background:transparent;text-align:center;width:100%;position:relative}
+
+  /* animated bottom underline (inset from sides) - pill shaped */
+  .main-nav a::after{content:"";position:absolute;left:1.25rem;right:1.25rem;bottom:10px;height:4px;background:var(--accent);border-radius:var(--radius-full);transform:scaleX(0);transform-origin:center;transition:transform var(--transition-fast),opacity var(--transition-fast);opacity:0}
+  .main-nav a:hover::after,
+  .main-nav a:focus::after{transform:scaleX(1);opacity:1}
+
+  /* replace filled hover with a thin accent border; exclude CTA buttons */
+  .main-nav a:not(.cta){transition:box-shadow var(--transition-fast),color var(--transition-fast)}
+  .main-nav a:not(.cta):hover,
+  .main-nav a:not(.cta):focus{
+    background:transparent; /* remove fill */
+    color:var(--text); /* keep text color unchanged */
+    /* draw a thin accent border without affecting layout */
+    box-shadow: 0 0 0 1px var(--accent);
+  }
+  /* hide the bottom pill underline when using the border to avoid double visuals */
+  .main-nav a:not(.cta):hover::after,
+  .main-nav a:not(.cta):focus::after{transform:scaleX(0);opacity:0}
+  /* CTA button styled prominently and centered on mobile */
+  .main-nav a.cta{background:var(--color-primary);color:var(--text-light);margin-left:0;width:100%;text-align:center;display:block}
+  .main-nav a:focus{outline:3px solid rgba(13,148,136,0.18);outline-offset:2px}
+}
+
+/* Custom card style based on user's Tailwind example */
+.custom-card{background:var(--bg-white);border-radius:var(--radius-lg);box-shadow:var(--shadow-md);padding:1.25rem;display:flex;flex-direction:column;gap:1rem;min-height:220px;transition:transform var(--transition-base),box-shadow var(--transition-base)}
+.custom-card .card-top{display:flex;align-items:center}
+.icon-circle{width:48px;height:48px;background:rgba(13,148,136,0.06);border-radius:var(--radius-full);display:flex;align-items:center;justify-content:center;color:var(--accent);transition:background-color var(--transition-fast),color var(--transition-fast),transform var(--transition-base)}
+.custom-card h3{margin:0;font-size:var(--text-xl);color:var(--text-dark)}
+.custom-card p{color:var(--text-muted);margin:0 0 1rem;flex-grow:1}
+
+/* hover for custom cards */
+.custom-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);cursor:pointer}
+
+/* change icon color on card hover */
+.custom-card:hover .icon-circle{background:var(--accent);color:var(--text-light);transform:scale(1.05)}
+.custom-card:hover .icon-circle svg{stroke:currentColor;fill:none}
+
+/* Also change icon color when hovering any .card (used on kontakt.html) */
+.card:hover .icon-circle{background:var(--accent);color:var(--text-light);transform:scale(1.05)}
+.card:hover .icon-circle svg,
+.card:hover .icon-circle svg * {
+  stroke: currentColor !important;
+  fill: none !important; /* keep inner gaps/details visible instead of filling everything */
+  vector-effect: non-scaling-stroke; /* keep stroke width consistent when icons are transformed/scaled */
+}
+.card:hover .icon-circle i{color:inherit}
+
+/* CTA card used in kalkulace section */
+.cta-card{background:var(--bg-white);border-radius:var(--radius);box-shadow:0 18px 40px rgba(3,22,18,0.06);border:1px solid var(--border-color)}
+.cta-card.p-8{padding:2rem}
+.cta-card.md\:p-12{padding:3rem}
+
+/* Reusable button hover utility matching site look */
+.btn-hover{display:inline-block;padding:.85rem 1.6rem;border-radius:var(--radius-md);background:var(--accent);color:var(--text-light);font-weight:var(--font-extrabold);text-decoration:none;transition:transform var(--transition-fast),box-shadow var(--transition-fast),background-color var(--transition-fast)}
+.btn-hover:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(3,54,44,0.12);background:var(--accent-hover)}
+
+/* Ensure the light band around factor grid sits nicely */
+.kalkulace-band{background:var(--border-color-light);padding:1.25rem 0;margin-top:0.6rem}
+.kalkulace-band .cta-card{padding:1rem}
+
+@media(min-width:900px){
+  .cta-card.p-8{padding:2.5rem}
+  .kalkulace-band{padding:3.5rem 0}
+}
+
+.btn.btn-outline{display:inline-block;text-align:center;padding:.75rem 1rem;border-radius:var(--radius-md);border:2px solid var(--accent);color:var(--accent);font-weight:var(--font-bold);text-decoration:none;transition:background-color var(--transition-fast),color var(--transition-fast),transform var(--transition-base),box-shadow var(--transition-fast),border-color var(--transition-fast)}
+
+/* outline button hover: fill with accent and invert text */
+.btn.btn-outline:hover{background:var(--accent);color:var(--text-light);transform:translateY(-3px);box-shadow:0 10px 26px rgba(0,0,0,.10);border-color:var(--accent);cursor:pointer}
+
+.cards.grid-2{display:grid;grid-template-columns:1fr;gap:0.9rem}
+
+.gallery{display:grid;grid-template-columns:1fr;gap:0.75rem}
+.gallery figure{margin:0;background:var(--bg-white);padding:.5rem;border-radius:var(--radius-md);border:1px solid var(--border-color)}
+.gallery img{width:100%;height:auto;border-radius:var(--radius-sm)}
+.gallery figcaption{font-size:1rem;padding:.5rem 0;color:var(--text)}
+
+.product-media img{max-width:320px;border-radius:var(--radius-md)}
+
+.map-responsive{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:var(--radius-md)}
+.map-responsive iframe{position:absolute;left:0;top:0;width:100%;height:100%;border:0}
+
+.pricing-cards{display:grid;grid-template-columns:1fr;gap:0.8rem}
+.price-card{background:var(--bg-white);padding:0;border-radius:14px;border:1px solid var(--border-color);box-shadow:var(--shadow-sm);overflow:hidden}
+.price-card{border-top:4px solid var(--accent)}
+.price-card > h2{padding:0 1rem;margin-top:1rem;margin-bottom:0}
+.price-card > p{padding:0 1rem;margin-bottom:1rem}
+.price-card > .space-y-4{padding:0}
+/* hover animation */
+.price-card{transition:transform var(--transition-base),box-shadow var(--transition-base)}
+.price-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+/* Override for the extended price card variant: use deep navy instead of the green accent */
+.price-card.price-card--long{
+  border-top-color: #002577; /* replace var(--accent) */
+}
+.price-card.price-card--long h3,
+.price-card.price-card--long .price-item .label,
+.price-card.price-card--long .price-item .price{
+  color: #002577;
+}
+/* Scope the left accent bar and hover color to the deep-blue variant only */
+.price-card.price-card--long .price-item::before{
+  background: #002577; /* left indicator line color for blue card */
+}
+.price-card.price-card--long .price-item:hover::before{
+  background: #002577;
+}
+.price-card.price-card--long .price-item:hover .price{
+  color: #002577; /* keep hover price color blue inside the blue card */
+}
+/* Alternative classes: keep original styles untouched, but provide a
+   parallel set of classes (`-alt`) that can be applied on specific pages
+   to avoid conflicts. These mirror the working layout for full-width
+   price items. */
+.price-card-alt{
+  background:var(--bg-white);
+  padding:0; /* internal elements receive specific padding so items can stretch */
+  border-radius:14px;
+  border:1px solid var(--border-color);
+  box-shadow:var(--shadow-sm);
+  overflow:hidden;
+  border-top:4px solid var(--accent);
+}
+.price-card-alt > h2{padding:0 1rem;margin-top:1rem;margin-bottom:0}
+.price-card-alt > p{padding:0 1rem;margin-bottom:1rem}
+.price-card-alt > .space-y-4{padding:0}
+
+/* price-item-alt: stretch to full card width, no outer radius so the
+   card's radius remains visible; keep inner padding for legibility */
+.price-card-alt .price-item-alt{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:var(--bg-surface);
+  padding:0.9rem 1.25rem;
+  width:100%;
+  margin:0;
+  box-sizing:border-box;
+  border-radius:0;
+  position:relative;
+  transition:transform var(--transition-base),box-shadow var(--transition-fast),background-color var(--transition-fast);
+}
+.price-card-alt .price-item-alt::before{content:"";position:absolute;left:12px;top:50%;transform:translateY(-50%) scaleY(0);width:4px;height:64%;background:var(--accent);border-radius:4px;transition:transform .18s cubic-bezier(.2,.9,.3,1);opacity:0}
+.price-card-alt .price-item-alt:hover{transform:translateY(-6px);box-shadow:0 10px 26px rgba(0,0,0,.06);background:var(--bg-white);cursor:pointer}
+.price-card-alt .price-item-alt:hover::before{transform:translateY(-50%) scaleY(1);opacity:1}
+.price-card-alt .price-item-alt .label{margin-left:0}
+.price-card-alt .price-item-alt .price{transition:color var(--transition-fast),transform var(--transition-fast);color:var(--accent);font-weight:var(--font-extrabold);font-size:1.1rem}
+
+/* Intro two-column layout (text + price card) */
+.intro.container{display:grid;grid-template-columns:1fr;gap:1.8rem;align-items:start}
+/* Vertically center the aside (price card) next to intro text on wider screens */
+.intro.container > aside{align-self:center}
+@media(min-width:900px){.intro.container{grid-template-columns:1fr 380px}}
+.intro .lead{color:#38504a}
+.benefits{display:grid;grid-template-columns:1fr;gap:0.8rem;margin-top:0.8rem}
+
+/* Centered feature benefits (Lucide icon cards) - widened layout */
+.benefits-feat{
+  display:grid;
+  /* adapt number of columns to available width, each column min 220px and max 320px
+     this keeps cards from stretching too wide and allows the whole grid to be centered */
+  grid-template-columns:repeat(auto-fit,minmax(220px,320px));
+  /* center the grid tracks when there is extra space */
+  justify-content:center;
+  gap:1.5rem;
+  margin:1.25rem auto 0; /* center the block horizontally */
+  width:100%;
+  max-width:1200px; /* limit width so it sits centered on wide screens */
+  padding:0 1rem;
+  align-items:start;
+  background:transparent;
+  justify-items:center; /* center items within their grid cells */
+}
+
+/* Tweak individual benefit card alignment and spacing */
+.benefits-feat .benefit-feat{
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:.6rem;
+  padding:1rem 0.6rem;
+}
+.icon-box-feat{
+  width:80px;height:80px;background:#f3f7f7;border-radius:var(--radius);display:flex;align-items:center;justify-content:center;margin-bottom:1rem;box-shadow:0 6px 18px rgba(0,0,0,.06);color:var(--accent);flex-shrink:0;transition:background-color var(--transition-fast),transform var(--transition-base)
+}
+.benefits-feat .benefit-feat h4{margin:0;font-size:1.02rem;color:var(--text-dark);font-weight:var(--font-bold)}
+.benefits-feat .benefit-feat p{margin:0;color:var(--text-muted);font-size:.98rem;max-width:34rem}
+
+/* Keep the left intro content in the left column; use .intro-main on the HTML wrapper */
+.intro.container > .intro-main{grid-column:1}
+
+/* Center the intro wrapper for pages that need the content centered (title + benefits) */
+.intro.container > .intro-center{
+  max-width:1100px; /* keep measure comfortable */
+  margin-left:auto;
+  margin-right:auto;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  padding-left:0;
+  padding-right:0;
+  /* span both columns when parent uses a two-column intro layout */
+  grid-column: 1 / -1;
+}
+.benefit-feat{display:flex;flex-direction:column;align-items:center;text-align:center}
+.icon-box-feat svg, .icon-box-feat i, .icon-box-feat img{width:36px;height:36px}
+.benefit-feat h4{margin:0 0 .5rem;font-size:var(--text-md);color:var(--text-dark);font-weight:var(--font-bold)}
+.benefit-feat p{margin:0;color:var(--text-muted);font-size:.98rem;line-height:var(--leading-normal);max-width:36rem}
+.benefit-feat:hover .icon-box-feat{background:var(--accent);color:var(--text-light);transform:scale(1.06)}
+@media(max-width:900px){.benefits-feat{grid-template-columns:1fr;gap:1.5rem;width:100%;margin-left:0;margin-right:0;padding:0.5rem 0}}
+
+@media(min-width:1200px){
+  /* on wide screens keep the section within a comfortable measure */
+  .benefits-feat{width:100%;max-width:1200px;margin-left:auto;margin-right:auto;padding:0}
+}
+
+/* Ensure exactly 3 columns on viewports >= 900px, and a single column on smaller screens */
+@media (min-width:900px) {
+  .benefits-feat{
+    grid-template-columns:repeat(3,1fr) !important;
+    justify-content:stretch;
+    gap:1.5rem;
+    width:100%;
+    max-width:1200px;
+    padding:0 1rem;
+  }
+}
+.benefit{display:flex;gap:0.9rem;align-items:flex-start;padding:0.45rem;border-radius:10px;transition:transform var(--transition-base),box-shadow var(--transition-fast),background-color var(--transition-fast)}
+.benefit .icon{background:rgba(13,148,136,0.08);color:var(--accent);padding:0.6rem;border-radius:10px;display:inline-flex;align-items:center;justify-content:center;flex:0 0 44px;height:44px;transition:background-color var(--transition-fast),transform var(--transition-base),color var(--transition-fast)}
+.benefit h4{margin:0;font-size:var(--text-base);color:var(--text-dark);transition:color var(--transition-fast)}
+.benefit p{margin:.15rem 0 0;color:var(--text-muted);font-size:var(--text-sm)}
+
+/* Benefit item cards used on international page (stehovani-v-zahranici.html) */
+.benefit-item{
+  background:var(--bg-white);
+  border-radius:12px;
+  box-shadow:var(--shadow-sm);
+  padding:1.5rem; /* matches Tailwind p-6 */
+  border:2px solid transparent; /* reserve space for hover frame */
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:1rem;
+  transition:transform var(--transition-base),box-shadow var(--transition-fast);
+}
+.benefit-item:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);cursor:pointer;border-color:var(--accent-hover)}
+.benefit-icon-wrapper{width:56px;height:56px;display:flex;align-items:center;justify-content:center;background:rgba(13,148,136,0.06);border-radius:12px;flex-shrink:0;outline:2px solid transparent;transition:transform var(--transition-base),outline-color var(--transition-fast)}
+.benefit-item h3{margin:0;font-size:1.125rem;color:#1a2b4b}
+.benefit-item p{margin:0;color:var(--text-muted);font-size:0.95rem}
+
+/* show a dark-green frame on icon hover or when parent is hovered */
+.benefit-item:hover .benefit-icon-wrapper,
+.benefit-icon-wrapper:hover{
+  outline-color:var(--accent-hover);
+  transform:scale(1.03);
+}
+
+/* Benefit hover animations */
+.benefit:hover{transform:translateY(-6px);box-shadow:0 10px 22px rgba(0,0,0,.06);background:rgba(255,255,255,0.02);cursor:pointer}
+.benefit .icon svg{transition:stroke var(--transition-fast)}
+.benefit:hover .icon{background:var(--accent);color:var(--text-light);transform:scale(1.05)}
+.benefit:hover .icon svg{stroke:var(--text-light)}
+.benefit:hover h4{color:var(--accent)}
+.price-card h2{margin:0 0 1rem;font-size:1.25rem}
+.price-item{display:flex;justify-content:space-between;align-items:center;background:var(--bg-surface);padding:0.9rem;border-radius:var(--radius-md)}
+.price-item{position:relative;overflow:visible;transition:transform var(--transition-base),box-shadow var(--transition-fast),background-color var(--transition-fast)}
+.price-item::before{content:"";position:absolute;left:12px;top:50%;transform:translateY(-50%) scaleY(0);width:4px;height:64%;background:var(--accent);border-radius:4px;transition:transform .18s cubic-bezier(.2,.9,.3,1);opacity:0}
+.price-item:hover{transform:translateY(-6px);box-shadow:0 10px 26px rgba(0,0,0,.06);background:var(--bg-white);cursor:pointer}
+.price-item:hover::before{transform:translateY(-50%) scaleY(1);opacity:1}
+.price-item .label{margin-left:0}
+.price{transition:color var(--transition-fast),transform var(--transition-fast)}
+.price-item:hover .price{color:var(--accent);transform:translateY(-1px)}
+.price-item + .price-item{margin-top:0.8rem}
+.price-item .price{color:var(--accent);font-weight:var(--font-extrabold);font-size:1.1rem}
+.price-card h3{margin:0 0 .5rem;font-family:var(--font-heading)}
+
+/* Ensure price-items inside a .price-card fill the card's full width
+   by removing card padding and applying it only to non-item children. */
+.price-card .price-item{
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  box-sizing: border-box;
+  border-radius: 0; /* let the card define the outer radius */
+}
+.muted{color:var(--text-muted);font-size:var(--text-sm)}
+.price-info{margin-top:1.5rem;padding:0}
+
+@media(min-width:900px){
+  .gallery{grid-template-columns:repeat(2,1fr)}
+  .pricing-cards{grid-template-columns:repeat(2,1fr)}
+  .cards.grid-2{grid-template-columns:repeat(2,1fr)}
+}
+
+/* ===================================================================== 
+   PRICE GRID: Responsive grid layout for PB bottles pricing cards
+   ===================================================================== */
+
+.price-grid{display:grid;grid-template-columns:1fr;gap:1rem;margin-top:1.5rem}
+
+/* Responsive columns: 1 on mobile, 2 on tablet, 4 on desktop */
+@media(min-width:600px){.price-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1200px){.price-grid{grid-template-columns:repeat(4,1fr)}}
+
+/* Price card base styling */
+.price-card{
+  background:var(--bg-white);
+  border:1px solid var(--border-color);
+  border-radius:var(--radius);
+  padding:1.5rem 1rem;
+  box-shadow:var(--shadow-sm);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  transition:transform var(--transition-base),box-shadow var(--transition-base);
+}
+
+.price-card:hover{
+  transform:translateY(-6px);
+  box-shadow:var(--shadow-lg);
+}
+
+/* Card header with icon and title */
+.price-card .card-head{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:0.75rem;
+  margin-bottom:1rem;
+  width:100%;
+}
+
+/* Gas bottle icon */
+.price-card .icon-gas{
+  width:64px;
+  height:64px;
+  object-fit:contain;
+  color:var(--accent);
+  flex-shrink:0;
+}
+
+.price-card h3{
+  margin:0;
+  font-size:var(--text-lg);
+  color:var(--text-dark);
+  font-weight:var(--font-bold);
+}
+
+/* Card content with pricing blocks */
+.price-card .card-content{
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  gap:0.8rem;
+}
+
+/* Individual price block */
+.price-block{
+  display:flex;
+  flex-direction:column;
+  gap:0.25rem;
+  padding:0.75rem;
+  background:var(--bg-1);
+  border-radius:var(--radius-sm);
+}
+
+.price-label{
+  font-size:var(--text-sm);
+  color:var(--text-muted);
+  font-weight:var(--font-normal);
+}
+
+.price-main{
+  font-size:var(--text-2xl);
+  color:var(--accent);
+  font-weight:var(--font-extrabold);
+}
+
+.price-secondary{
+  font-size:var(--text-xl);
+  color:var(--text-dark);
+  font-weight:var(--font-bold);
+}
+
+.price-sub{
+  font-size:var(--text-xs);
+  color:var(--text-muted);
+  font-style:italic;
+}
+
+/* Footer text description */
+.card-footer-text{
+  margin-top:0.75rem;
+  font-size:var(--text-sm);
+  color:var(--text-muted);
+  line-height:var(--leading-normal);
+}
+
+/* Info alert box */
+.info-alert{
+  display:flex;
+  gap:1rem;
+  padding:1.25rem;
+  background:rgba(13,148,136,0.06);
+  border-left:4px solid var(--accent);
+  border-radius:var(--radius-sm);
+  margin-top:1.5rem;
+}
+
+.info-icon{
+  width:24px;
+  height:24px;
+  color:var(--accent);
+  flex-shrink:0;
+  margin-top:0.1rem;
+}
+
+.info-text h4{
+  margin:0 0 0.5rem;
+  font-size:var(--text-md);
+  color:var(--text-dark);
+}
+
+.info-text p{
+  margin:0;
+  font-size:var(--text-sm);
+  color:var(--text-muted);
+  line-height:var(--leading-normal);
+}
+
+/* Price section styling */
+.price-section{
+  padding:var(--section-gap) 0;
+}
+
+.section-header{
+  text-align:center;
+  margin-bottom:1.5rem;
+}
+
+.section-header h2,
+.section-header .howto-section-title{
+  margin:0 0 0.5rem;
+  text-align:center;
+  color:var(--text-dark);
+}
+
+.section-header p{
+  margin:0;
+  font-size:var(--text-sm);
+  color:var(--text-muted);
+}
+
+/* Section title and small centered underline */
+.section-title{margin:0;text-align:center;font-size:clamp(1.125rem,2.4vw,1.6rem);line-height:var(--leading-tight);font-weight:var(--font-bold);color:var(--text-dark);margin-bottom:.6rem}
+
+.section-title::after{content:"";display:block;width:44px;height:4px;background:var(--accent);margin:.6rem auto 1.1rem;border-radius:3px}
+.heading-line{width:44px;height:4px;background:var(--accent);margin:.6rem auto 1.1rem;border-radius:3px}
+
+/* Global H2 underline for visual consistency: small centered accent bar below all H2s */
+h2{position:relative}
+h2::after{content:"";display:block;width:44px;height:4px;background:var(--accent);margin:.6rem auto 0.6rem;border-radius:3px}
+
+/* utility class to hide the small underline for specific headings */
+.no-underline::after{display:none}
+
+/* Center kalkulace CTA button that follows the kalkulace band */
+.kalkulace-band + a,
+.kalkulace-cta {display:block;margin:1.25rem auto 0;width:-moz-fit-content;width:-webkit-fit-content;width:fit-content;text-align:center}
+
+/* Utility: center text */
+.text-center{ text-align:center; }
+
+/* Hover effect for the large kalkulace card area */
+.kalkulace-band .cta-card{transition:transform var(--transition-base),box-shadow var(--transition-base)}
+.kalkulace-band .cta-card:hover{transform:translateY(-8px);box-shadow:0 30px 70px rgba(2,20,18,0.12);cursor:pointer}
+
+/* Reduce gaps between the items inside the kalkulace grid to bring elements closer */
+.kalkulace-band .grid{gap:0.75rem}
+.kalkulace-band .grid .flex{gap:0.5rem}
+
+/* Make the CTA button sit closer to the band */
+.kalkulace-band + a{margin:0.6rem auto 0}
+
+/* Tighten spacing so the heading/intro reads as part of the same kalkulace section */
+.kalkulace-section .max-w-4xl{margin-bottom:0.35rem}
+.kalkulace-section h2{margin-bottom:0.35rem}
+.kalkulace-section p{margin-bottom:0.6rem}
+@media(min-width:720px){
+  .kalkulace-section .max-w-4xl{margin-bottom:0.6rem}
+}
+
+.kalkulace-section{
+  /* Allow page-specific inline styles or utility classes to override these
+     defaults — avoid using !important so authors can adjust spacing per page. */
+  padding-top:0.8rem;
+  padding-bottom:0.8rem;
+}
+.kalkulace-section .max-w-4xl{
+  padding-left:var(--page-padding);
+  padding-right:var(--page-padding);
+}
+.kalkulace-section h2{margin-bottom:.35rem}
+.kalkulace-section p{margin-bottom:.6rem}
+.kalkulace-section .kalkulace-band{margin-top:0.45rem;padding:1rem 0}
+.kalkulace-section .kalkulace-band .cta-card{padding:1rem}
+.kalkulace-section .kalkulace-band .grid{gap:0.8rem}
+.kalkulace-section .kalkulace-band .grid > .flex{gap:0.5rem}
+.kalkulace-section .kalkulace-band + a{margin-top:0.6rem}
+
+/* On small screens make a little more breathing room if needed */
+@media(max-width:900px){
+  .kalkulace-section{padding-top:1rem !important;padding-bottom:1rem !important}
+  .kalkulace-section .kalkulace-band{padding:1rem !important}
+}
+
+/* Central section spacing and container padding */
+section:not(.hero){padding-top:var(--section-gap);padding-bottom:var(--section-gap)}
+
+/* Increase vertical spacing only for the hero section */
+.hero{padding-top:calc(var(--section-gap) + 5rem);padding-bottom:calc(var(--section-gap) + 5rem)}
+
+.container{padding-left:var(--page-padding);padding-right:var(--page-padding)}
+
+
+/* Additional services cards */
+.service-grid{display:grid;grid-template-columns:1fr;gap:0.8rem;margin-top:1rem}
+.service-card{background:var(--bg-white);border-radius:14px;padding:1.25rem;display:flex;flex-direction:column;align-items:center;text-align:center;box-shadow:var(--shadow-sm);border-bottom:4px solid var(--accent);transition:transform var(--transition-base),box-shadow var(--transition-base)}
+.service-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+.service-card .icon{width:48px;height:48px;border-radius:var(--radius-full);display:flex;align-items:center;justify-content:center;color:var(--accent);background:rgba(13,148,136,0.06);margin-bottom:0.85rem;transition:background-color var(--transition-fast),color var(--transition-fast),transform var(--transition-base)}
+
+/* change icon color on service-card hover */
+.service-card:hover .icon{background:var(--accent-08);box-shadow:0 0 0 1px var(--accent);color:var(--text-dark);transform:scale(1.05)}
+.service-card:hover .icon svg{stroke:currentColor;fill:none;vector-effect:non-scaling-stroke}
+.service-card .icon:hover,
+.service-card .icon:focus{
+  background:var(--accent-08);
+  box-shadow:0 0 0 1px var(--accent);
+  color:var(--text-dark);
+  transform:scale(1.05);
+  outline: none;
+}
+.service-card h3{margin:0 0 .6rem;font-size:var(--text-base);color:var(--text-dark);text-transform:uppercase;letter-spacing:.08em}
+.link-underline{position:relative;text-decoration:none;color:var(--accent);font-weight:var(--font-bold);display:inline-block}
+.link-underline::after{content:"";position:absolute;left:50%;transform:translateX(-50%);bottom:-6px;height:2px;width:36px;background:var(--accent);border-radius:2px}
+
+/* Make inline links styled like the site's outline buttons so they're clearly buttons */
+.link-underline{
+  display:inline-block;
+  padding:.65rem 1rem;
+  border-radius:var(--radius-md);
+  border:2px solid var(--accent);
+  background:transparent;
+  color:var(--accent);
+  font-weight:var(--font-bold);
+  text-decoration:none;
+  transition:background-color var(--transition-fast),color var(--transition-fast),transform var(--transition-base),box-shadow var(--transition-fast),border-color var(--transition-fast);
+}
+.link-underline:hover{background:var(--accent);color:var(--text-light);transform:translateY(-3px);box-shadow:0 10px 26px rgba(0,0,0,.10);border-color:var(--accent);cursor:pointer}
+.link-underline::after{display:none}
+
+/* Ensure action links/buttons sit at the bottom of service cards regardless
+  of the amount of text: push the link to the end of the flex column. */
+.service-card .link-underline{margin-top:auto;display:inline-block}
+
+@media(min-width:768px){
+  .service-grid{grid-template-columns:repeat(2,1fr)}
+}
+
+/* 3-column grid for specific service sections (index only) */
+.service-grid--three{grid-template-columns:1fr}
+
+/* Keep .service-grid--three stacked on small screens and ensure it becomes
+   three columns only on viewports >= 900px (stacked below 900px). */
+@media (min-width:900px){
+  .service-grid--three{grid-template-columns:repeat(3,1fr)}
+}
+
+@media(min-width:1024px){
+  .service-grid{grid-template-columns:repeat(4,1fr)}
+  .service-grid--three{grid-template-columns:repeat(3,1fr)}
+
+  /* New explicit 3-column utility for pages that require exactly 3 columns */
+  .service-grid-3{display:grid;grid-template-columns:1fr;gap:0.8rem;margin-top:1rem}
+  @media(min-width:768px){
+    .service-grid-3{grid-template-columns:repeat(2,1fr)}
+  }
+  @media(min-width:1024px){
+    .service-grid-3{grid-template-columns:repeat(3,1fr)}
+  }
+
+  /* Steps / 3-kroky section */
+  .steps-grid{display:grid;grid-template-columns:1fr;gap:1.5rem;text-align:center}
+  .step-circle{width:48px;height:48px;background:var(--accent);color:var(--text-light);border-radius:var(--radius-full);display:inline-flex;align-items:center;justify-content:center;font-weight:var(--font-extrabold);font-size:var(--text-lg);margin:0 auto 1rem;transition:transform var(--transition-base),box-shadow var(--transition-fast)}
+  /* light hover for step circle */
+  .step-circle:hover{transform:translateY(-6px) scale(1.03);box-shadow:0 10px 26px rgba(0,0,0,.08)}
+  .steps-grid h3{margin:0 0 .6rem;color:var(--text-dark);font-size:var(--text-lg)}
+  .steps-grid p{color:var(--text-muted);margin:0 auto;max-width:280px}
+
+  @media(min-width:720px){
+    .steps-grid{grid-template-columns:repeat(3,1fr)}
+  }
+}
+
+/* Respect user preference for reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .price-card,.price-item,.price-item::before,.benefit,.benefit .icon{transition:none!important;transform:none!important}
+}
+
+/* Slide-down animation for mobile hamburger (subtle, respects reduced-motion) */
+@keyframes slideDown{
+  0%{transform:translateY(-24px);opacity:0}
+  70%{transform:translateY(2px);opacity:1}
+
+/* Detailed responsive rules for header/navigation across many viewport sizes.
+   Mobile-first approach: base styles handle smallest screens; these breakpoints
+   progressively enhance layout, spacing and sizing for larger viewports.
+*/
+
+/* Small phones / narrow displays */
+@media (min-width:360px){
+  .logo img{max-height:42px}
+  .main-nav a{font-size:.95rem;padding:.9rem 1rem}
+  .main-nav ul{gap:.5rem}
+}
+
+@media (min-width:420px){
+  .logo img{max-height:44px}
+  .main-nav a{font-size:.98rem;padding:.9rem 1.05rem}
+  .main-nav ul{gap:.6rem}
+}
+
+@media (min-width:480px){
+  .logo img{max-height:46px}
+  .main-nav a{font-size:1rem;padding:.6rem .85rem}
+  .main-nav ul{gap:.75rem}
+}
+
+@media (min-width:640px){
+  .logo img{max-height:48px}
+  .main-nav ul{gap:1rem}
+}
+
+/* Desktop breakpoint: show full navigation and hide hamburger */
+@media (min-width:900px){
+  .nav-toggle{display:none;opacity:1;transform:none}
+  .main-nav{display:block}
+  .main-nav ul{display:flex;flex-direction:row;gap:1.1rem;align-items:center;justify-content:center;flex-wrap:wrap}
+  .main-nav a{display:inline-block;text-align:center;padding:.5rem .6rem}
+  .main-nav a.cta{padding:.5rem .9rem;margin-left:0}
+}
+
+@media (min-width:900px){
+  .logo img{max-height:52px}
+  .main-nav ul{gap:1.2rem}
+  .main-nav a{font-size:1.02rem}
+}
+
+@media (min-width:1024px){
+  .container{max-width:1024px}
+  .main-nav ul{gap:1.4rem}
+}
+
+@media (min-width:1200px){
+  .container{max-width:1200px}
+  .logo img{max-height:56px}
+  .main-nav a{font-size:1.05rem;padding:.6rem .75rem}
+}
+
+@media (min-width:1440px){
+  .container{max-width:1280px}
+  .logo img{max-height:64px}
+  .main-nav ul{gap:1.6rem}
+}
+
+@media (min-width:1600px){
+  .container{max-width:1440px}
+  .main-nav a{font-size:1.08rem}
+}
+
+/* On medium-wide screens (1024–1471px): tighter nav spacing so menu fits better */
+@media (max-width:1471px) and (min-width:1024px){
+  .main-nav ul{gap:0.8rem}
+  .main-nav a{padding:.5rem .55rem;font-size:0.98rem}
+}
+
+/* Ultra-narrow range (720–879px): stack and center everything */
+@media (max-width:879px){
+  .main-nav ul{flex-direction:column}
+  .main-nav li{width:100%;text-align:center}
+}
+
+/* Ensure long nav labels wrap and remain centered within their own link box */
+.main-nav li{min-width:0}
+
+/* Medium screens: allow the navigation to occupy full width and wrap into
+   centered rows instead of squeezing horizontally. Keeps CTA and logo
+   visually balanced while making the menu usable on narrower desktops. */
+@media (min-width:900px) and (max-width:1199px){
+  .site-header .container{flex-wrap:wrap;align-items:center;gap:0.25rem}
+  /* let nav drop to a new line and use full width so items can wrap */
+  .main-nav{order:2;width:100%;margin-top:0.3rem}
+  .logo{order:1;flex:0 0 auto}
+  .main-nav ul{justify-content:center;gap:0.6rem}
+  .main-nav li{flex:0 1 auto;min-width:0}
+  /* slightly larger hit targets when wrapping */
+  .main-nav a{padding:.6rem .8rem}
+  /* keep CTA visually distinct but not overly large when wrapping */
+  .main-nav a.cta{padding:.55rem .85rem}
+}
+
+/* Narrower desktop: try to distribute items over multiple columns if needed */
+@media (min-width:880px) and (max-width:1023px){
+  .main-nav ul{gap:0.5rem}
+  .main-nav li{flex:1 1 auto;text-align:center}
+  .main-nav a{width:100%;display:inline-block}
+}
+
+  100%{transform:translateY(0);opacity:1}
+}
+@keyframes slideDownMenu{
+  0%{transform:translateY(-100%);opacity:0}
+  70%{transform:translateY(4px);opacity:1}
+  100%{transform:translateY(0);opacity:1}
+}
+@media (prefers-reduced-motion: reduce){
+  .nav-toggle{animation:none !important;transform:none !important;opacity:1 !important}
+  .main-nav.animating{animation:none !important;transform:none !important;opacity:1 !important}
+  .site-header,.site-header.visible,.site-header.hidden{transition:none !important;transform:none !important}
+}
+
+.contact-grid{display:grid;gap:1rem}
+form label{display:block;margin:.4rem 0}
+form input,form textarea{width:100%;padding:.6rem;border:1px solid var(--border-color);border-radius:10px}
+.hp{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+
+.site-footer{background:var(--footer-bg);color:var(--text-light);padding:2rem 0}
+.site-footer a{color:var(--text-light)}
+
+/* Redesigned contact section to match site cards */
+.contact{--card-radius:18px}
+.contact h2{color:var(--text-dark);margin-bottom:.25rem;text-align:center}
+
+/* add centered accent underline to contact heading to match other section titles */
+.contact h2::after{content:"";display:block;width:44px;height:4px;background:var(--accent);margin:.6rem auto 1.1rem;border-radius:3px}
+.contact p{color:#38504a;margin-bottom:1rem}
+.contact .contact-grid{grid-template-columns:1fr;gap:1rem}
+/* ensure contact grid children stretch to same height so map can match left card */
+.contact .contact-grid{align-items:stretch}
+
+/* Centralized contact row styles (replaces inline styles in pages) */
+.contact .contact-row{
+  display:flex;
+  gap:12px;
+  align-items:flex-start;
+  margin-top:1rem;
+}
+.contact .contact-row svg{
+  width:28px;
+  height:28px;
+  flex-shrink:0;
+  color:var(--accent);
+}
+.contact h3{
+  margin:0 0 6px;
+  color:var(--text-dark);
+  font-weight:var(--font-extrabold);
+}
+.contact p{margin:0;color:var(--text-muted)}
+.contact .muted-italic{margin-top:.375rem;color:#9aa7a3;font-size:0.9375rem;font-style:italic}
+.contact .phone-link{font-size:1.125rem;color:var(--text);font-weight:var(--font-extrabold);text-decoration:none}
+
+.contact .contact-grid > div{display:flex;flex-direction:column}
+.contact .contact-grid > div,.contact .contact-grid form{background:var(--bg-white);padding:1.25rem;border-radius:var(--card-radius);box-shadow:var(--shadow-md);border-top:4px solid var(--accent);transition:transform var(--transition-base),box-shadow var(--transition-base)}
+.contact .contact-grid > div{display:flex;flex-direction:column;gap:.4rem}
+.contact .contact-grid > div:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);cursor:pointer}
+.contact .contact-grid a{color:var(--accent);font-weight:var(--font-bold);text-decoration:none}
+.contact form{display:flex;flex-direction:column;gap:.75rem}
+.contact label{font-weight:var(--font-bold);color:var(--text-dark)}
+.contact input,.contact textarea{border:1px solid var(--border-color);padding:.75rem;border-radius:10px;background:var(--bg-surface)}
+.contact input:focus,.contact textarea:focus{outline:none;box-shadow:0 6px 18px rgba(0,0,0,.06);border-color:var(--accent)}
+.contact .btn.btn-primary{width:100%;align-self:stretch;padding:0.9rem 1rem;border-radius:var(--radius-md)}
+
+@media(min-width:900px){
+  /* make left contact info narrower (30%) and the form larger on wide screens */
+  .contact .contact-grid{grid-template-columns:30% 1fr;gap:2rem;align-items:stretch}
+  /* reduce padding for the compact contact info box */
+  .contact .contact-grid > .contact-info{padding:.9rem}
+  .contact .contact-grid > .contact-info p{display:flex;align-items:center;gap:.5rem;margin:0}
+  .contact .contact-grid > .contact-info a{color:var(--accent);text-decoration:none}
+}
+
+/* When map is inside the contact grid, make it fill the right column height */
+.contact .map-responsive{padding-bottom:0;height:100%;min-height:180px;border-radius:var(--radius-md);overflow:hidden}
+.contact .map-responsive iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+/* larger screens */
+@media(min-width:900px){
+  .container:not(.site-header .container){width:var(--container-default)}
+  /* increase section gap for wider viewports as well */
+  :root{--page-padding:2rem;--section-gap:4rem}
+  .main-nav{display:block}
+  .nav-toggle{display:none}
+  .hero-inner{grid-template-columns:1fr 1fr}
+  .cards{grid-template-columns:repeat(3,1fr)}
+  .contact-grid{grid-template-columns:1fr 1fr}
+}
+
+@media(min-width:1200px){
+  /* Keep root font-size consistent across viewports to ensure rem-based scale
+     produces predictable pixel sizes. Previously set to 17px which caused
+     smaller pages to render at ~17px; unify to 16px and use --text-base for
+     the desired 19px body text. */
+  html{font-size:16px}
+}
+
+/* Fix: on small notebooks / narrow laptops the fixed header can overlap
+   the page content. Add extra top offset for the main container under 1250px. */
+/* Apply extra top padding only between 901px and 1250px so smaller
+   phones / narrow mobiles keep the existing spacing rules. */
+@media (min-width:901px) and (max-width:1250px){
+  main.container{padding-top:90px}
+}
+
+/* Destinations section: image left, text right on desktop; stacked on mobile */
+.destinations-section .destinations-split{display:flex;flex-direction:column;gap:1rem;align-items:stretch}
+.destinations-section .dest-image{
+  width:100%;
+  /* ensure the left card remains visually prominent on small screens */
+  min-height:220px;
+  overflow:hidden;
+  border-radius:12px;
+  padding:0.75rem; /* larger white card area */
+  background:var(--bg-white);
+}
+.destinations-section .dest-image img{width:100%;height:auto;display:block;object-fit:cover}
+.destinations-section .dest-list{padding:0.5rem 0}
+
+@media(min-width:900px){
+  .destinations-section .destinations-split{flex-direction:row;align-items:center;gap:2rem}
+  /* make image take slightly less than half so text has breathing room */
+  .destinations-section .dest-image{
+    flex:0 0 48%;
+    max-width:48%;
+    /* larger minimum so the left card matches taller text blocks */
+    min-height:320px;
+    padding:1rem;
+    background:var(--bg-white);
+  }
+  .destinations-section .dest-image img{width:100%;height:100%;object-fit:cover}
+  .destinations-section .dest-list{flex:1;padding:0}
+}
+
+/* On smaller viewports center the image and crop sides instead of shrinking the whole card */
+@media (max-width:899px){
+  .destinations-section .dest-image{
+    padding:0 !important; /* remove white card padding so image can span edge-to-edge inside container */
+    min-height:220px; /* keep a comfortable height */
+    background:transparent !important;
+  }
+  .destinations-section .dest-image img{
+    width:100% !important;
+    height:100% !important;
+    object-fit:cover !important;
+    object-position:center center !important; /* center the artwork so sides are cropped evenly */
+    border-radius:12px; /* keep rounded corners if desired */
+    display:block;
+  }
+}
+
+/* On phones swap the visual order: show the list first, image below */
+@media (max-width:599px){
+  .destinations-section .destinations-split{
+    flex-direction: column-reverse;
+  }
+}
+
+/* Center the text block vertically inside its column on desktop */
+@media(min-width:900px){
+  .destinations-section .dest-list{
+    display:flex;
+    flex-direction:column;
+    justify-content:center; /* vertical centering */
+    padding-left:1rem; /* breathing room from the image */
+    padding-right:1rem;
+  }
+  .destinations-section .dest-list ul{margin-top:0.5rem}
+}
+
+/* accessibility focus */
+a:focus,button:focus,input:focus{outline:3px solid rgba(0,149,140,.18);outline-offset:2px}
+
+/* Hero-split specific styles moved from page inline CSS */
+.hero-split{width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);margin-top:0;margin-bottom:0;background:transparent;padding:0;overflow:hidden}
+.hero-split .container-split{display:flex;min-height:calc(100vh - var(--header-height,72px));width:100%;margin:0;padding:0}
+.hero-split .left-side{flex:1;display:flex;align-items:center;padding:48px 6%;background:var(--bg-white);z-index:2}
+.hero-split h1{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:var(--font-extrabold);color:#111;line-height:1.05;margin:0 0 14px}
+.hero-split .hero-sub{color:#4b5563;line-height:1.6;font-size:1rem;margin-bottom:18px}
+.hero-split .right-side{flex:1.2;position:relative;background-image:url('https://images.unsplash.com/photo-1592194996308-7b43878e84a6?auto=format&fit=crop&w=1400&q=80');background-size:cover;background-position:center;background-repeat:no-repeat;z-index:1}
+.hero-split .gradient-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(to right,#fff 0%,rgba(255,255,255,0) 45%)}
+
+@media(max-width:900px){
+  /* On mobile: allow background images to show in right-side while keeping
+     content layout. Background images for .hero-split are kept visible. */
+  .hero::after, .hero-split::after{background:none !important;opacity:1 !important}
+
+  /* Allow .hero-split .right-side to display background images on mobile
+     (either inline style or CSS background-image) */
+  .hero-split .right-side{background-size:cover;background-position:center;background-repeat:no-repeat;background-attachment:scroll}
+
+  /* For regular .hero .right-side (if used elsewhere), prioritize inline img elements */
+  .hero .right-side img{display:block !important}
+
+  .hero-split .container-split{flex-direction:column !important;height:auto !important;display:block !important}
+  .hero-split .left-side{width:100% !important;padding:28px 18px !important;background:#ffffff !important}
+  .hero-split .right-side{display:block !important;width:calc(100% - 30px) !important;height:320px !important;min-height:260px !important;margin:14px auto 32px auto !important;border-radius:18px !important;box-shadow:0 12px 30px rgba(0,0,0,0.12)}
+  .hero-split .gradient-overlay{display:none !important}
+}
+
+/* On phones add extra top spacing to hero sections except on index and kontakt pages */
+@media (max-width:900px) {
+  body:not(.page-index):not(.page-kontakt) .hero,
+  body:not(.page-index):not(.page-kontakt) .hero-split .container-split{
+    padding-top: calc(var(--section-gap) - 5px) !important;
+  }
+}
+
+/* Full-width contact CTA section: stretch the colored background edge-to-edge
+   while keeping the inner content centered and constrained. */
+.contact-cta{
+  width:100vw;
+  margin-left:calc(50% - 50vw);
+  margin-right:calc(50% - 50vw);
+  /* ensure site's section spacing takes effect even if utility classes are injected after this file */
+  padding-top:var(--section-gap) !important; /* use site's section spacing */
+  padding-bottom:var(--section-gap) !important;
+  /* separate gray band from previous section (prevents 'stuck' look) */
+
+  display:block;
+  clear:both;
+  box-sizing:border-box;
+}
+.contact-cta .max-w-4xl{
+  max-width:1200px; /* keep content readable */
+  width:100%;
+  margin:0 auto;
+  padding-left:var(--page-padding);
+  padding-right:var(--page-padding);
+}
+
+.contact-cta .benefits-grid{display:grid;grid-template-columns:1fr;gap:1rem;margin-bottom:1rem}
+@media(min-width:900px){.contact-cta .benefits-grid{grid-template-columns:repeat(4,1fr)}}
+.contact-cta .benefit-card{transition:all .3s ease;border:1px solid var(--border-color-light);background:var(--bg-white);padding:1rem;border-radius:1rem;text-align:center}
+.contact-cta .benefit-card:hover{transform:translateY(-5px);border-color:var(--accent);box-shadow:0 10px 15px rgba(0,0,0,.08)}
+.contact-cta .icon-box{width:56px;height:56px;background:#f0fdfa;color:var(--accent);border-radius:1rem;display:flex;align-items:center;justify-content:center;margin:0 auto .75rem}
+.contact-cta .benefit-card:hover .icon-box{background:var(--accent-08);box-shadow:0 0 0 1px var(--accent);color:var(--text-dark);transform:scale(1.05)}
+.contact-cta .benefit-card h3{margin:.5rem 0 .25rem;color:var(--text-dark);font-weight:var(--font-bold);font-size:var(--text-base)}
+.contact-cta .benefit-card p{color:var(--text-muted);font-size:var(--text-sm);margin:0}
+
+/* Global benefits block (when moved outside .contact-cta) */
+.benefits-grid{display:grid;grid-template-columns:1fr;gap:1rem;margin-bottom:1rem}
+@media(min-width:900px){.benefits-grid{grid-template-columns:repeat(4,1fr)}}
+.benefit-card{transition:transform var(--transition-base),box-shadow var(--transition-base),border-color var(--transition-fast);border:1px solid var(--border-color-light);background:var(--bg-white);padding:1rem;border-radius:1rem;text-align:center}
+.benefit-card:hover{transform:translateY(-6px);border-color:var(--accent);box-shadow:var(--shadow-lg);cursor:pointer}
+.icon-box{width:56px;height:56px;background:#f0fdfa;color:var(--accent);border-radius:1rem;display:flex;align-items:center;justify-content:center;margin:0 auto .75rem;transition:background-color var(--transition-fast),color var(--transition-fast),transform var(--transition-base)}
+.benefit-card:hover .icon-box{background:var(--accent-08);box-shadow:0 0 0 1px var(--accent);color:var(--text-dark);transform:scale(1.05)}
+
+/* Hover & focus for standalone .icon elements (used in lists/services) */
+.icon:hover,.icon:focus{
+  background:var(--accent-08);
+  box-shadow:0 0 0 1px var(--accent);
+  color:var(--text-dark);
+  outline: none;
+}
+.benefit-card h3{margin:.5rem 0 .25rem;color:var(--text-dark);font-weight:var(--font-bold);font-size:var(--text-base)}
+.benefit-card p{color:var(--text-muted);font-size:var(--text-sm);margin:0}
+/* Subtle hover for contact links (phone / email) */
+.inline-flex.bg-white a{
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+  padding:.25rem .5rem;
+  border-radius:10px;
+  transition:transform var(--transition-fast),box-shadow var(--transition-fast),background-color var(--transition-fast),color var(--transition-fast);
+}
+.inline-flex.bg-white a:hover{
+  transform:translateY(-3px);
+  box-shadow:0 10px 20px rgba(3,54,44,0.08);
+  background:rgba(0,149,140,0.06);
+  color:#004d45;
+  text-decoration:none;
+}
+.inline-flex.bg-white a:focus{
+  outline:3px solid rgba(0,149,140,0.12);
+  outline-offset:2px;
+}
+/* Hover for the whole white contact container */
+.inline-flex.bg-white{
+  transition:background-color var(--transition-fast),box-shadow var(--transition-base); /* keep subtle transitions for background if needed */
+  padding: 1.25rem 1.5rem; /* increased padding */
+}
+
+.inline-flex.bg-white:focus-within{
+  outline:3px solid rgba(0,149,140,0.08);
+  outline-offset:4px;
+}
+
+/* Larger padding on wider screens */
+@media(min-width:900px){
+  .inline-flex.bg-white{
+    padding:2rem 3rem;
+  }
+
+  /* Glassmorphism card used under hero */
+  .glass-card{
+    position:relative; /* relative by default so it's part of flow; absolute positioning applied on large screens */
+    max-width:880px;
+    width:calc(100% - 3rem);
+    padding:1.5rem;
+    border-radius:16px;
+    background:linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.06));
+    backdrop-filter:blur(10px) saturate(120%);
+    -webkit-backdrop-filter:blur(10px) saturate(120%);
+    border:1px solid rgba(255,255,255,0.12);
+    box-shadow:0 10px 30px rgba(2,12,14,0.45);
+    text-align:center;
+    color:var(--text); /* use site text color (not white) */
+    margin: -4rem auto 2rem; /* pull up slightly to visually attach to hero; increased bottom spacing */
+    z-index:5;
+  }
+  .glass-card .glass-lead{margin:0 0 .9rem;font-style:italic;font-size:1.05rem;color:var(--text)}
+  .glass-card .btn-outline{background:transparent;color:var(--accent);border-color:rgba(13,148,136,0.18);padding:.7rem 1.2rem}
+  .glass-card .btn-outline:hover{background:var(--accent);color:var(--text-light)}
+
+  /* adjust width/padding for larger screens (kept inside outer min-width:720px block) */
+  .glass-card{width:80%;padding:2rem}
+
+  @media(max-width:719px){
+    /* On small screens place card inline below hero content with solid background */
+    .glass-card{position:static;transform:none;margin:1.5rem 0;background:rgba(255,255,255,0.98);color:var(--text);border:1px solid var(--border-color);box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none}
+    .glass-card .glass-lead{color:var(--text);font-style:italic}
+    .glass-card .btn-outline{border-color:var(--accent);color:var(--accent);background:transparent}
+  }
+}
+
+/* Ensure mobile-specific glass-card rules are always applied (fix nested @media issue) */
+@media(max-width:900px){
+  .glass-card{position:static !important;transform:none !important;margin:1.5rem 0 !important;background:rgba(255,255,255,0.98) !important;color:var(--text) !important;border:1px solid var(--border-color) !important;box-shadow:none !important;backdrop-filter:none !important;-webkit-backdrop-filter:none !important;z-index:20}
+  .glass-card .glass-lead{color:var(--text) !important;font-style:italic}
+  .glass-card .btn-outline{border-color:var(--accent) !important;color:var(--accent) !important;background:transparent !important}
+}
+
+
+    /* Catalog styles (scoped) */
+    .catalog-header{text-align:center;margin:40px 0 30px}
+    /* Reusable decorated heading used for all page H2s to keep underline consistent */
+    .decorated{color:#0d2d44;text-transform:uppercase;font-size:24px;letter-spacing:1px;display:inline-block;position:relative;padding-bottom:12px;margin:0}
+    .decorated::after{content:'';position:absolute;left:50%;bottom:6px;transform:translateX(-50%);width:60%;max-width:320px;height:4px;background-color:var(--accent);border-radius:var(--radius-sm)}
+    .catalog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1200px;margin:0 auto}
+    .trailer-card{background:var(--bg-white);border-radius:var(--radius-md);box-shadow:0 4px 15px rgba(0,0,0,.05);display:flex;flex-direction:column;overflow:hidden;transition:transform .2s}
+    .trailer-card:hover{transform:translateY(-5px)}
+    .card-body{padding:18px;flex-grow:1}
+    .card-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px}
+    .img-container{width:64px;height:64px;border-radius:var(--radius-sm);overflow:hidden;flex:0 0 64px;background:#f4f4f4;display:flex;align-items:center;justify-content:center}
+    .img-container img{width:100%;height:100%;object-fit:cover;display:block}
+    .price-tag{text-align:right}
+    .price-label{font-size:15px;color:#999;text-transform:uppercase;display:block}
+    .price-value{font-size:20px;font-weight:800;color:#0d2d44}
+    .trailer-name{color:#0d2d44;font-size:16px;font-weight:700;text-transform:uppercase;margin:6px 0}
+    .trailer-desc{font-size:15px;color:#666;font-style:italic;margin-bottom:16px}
+    .specs{border-top:1px solid #f0f0f0;padding-top:12px}
+    .spec-row{display:flex;justify-content:space-between;font-size:15px;margin-bottom:6px}
+    .spec-label{color:#aaa}
+    .spec-value{color:#444;font-weight:600}
+    .btn-interest{display:block;width:100%;background:#f4f6f8;color:#1a2b4b;text-align:center;padding:12px;text-decoration:none;font-size:15px;font-weight:700;text-transform:uppercase;transition:background-color .2s}
+    .btn-interest:hover{background:#e2e8f0}
+    @media (max-width:1024px){.catalog-grid{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:650px){.catalog-grid{grid-template-columns:1fr}}
+    /* Gallery styles to match site design (responsive) */
+    .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:1200px;margin:0 auto;padding:12px 0}
+    .gallery-grid a.gallery-link{display:block;text-decoration:none}
+    .gallery-grid img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--radius-sm);box-shadow:0 6px 18px rgba(13,45,68,0.08);display:block;transition:transform .25s ease,box-shadow .25s ease}
+    .gallery-grid img:hover{transform:translateY(-6px) scale(1.02);box-shadow:0 10px 30px rgba(13,45,68,0.12)}
+    .gallery-grid img:focus{outline:3px solid var(--accent);outline-offset:3px}
+    /* Lightbox (responsive adjustments) */
+    .lightbox{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(10,20,30,0.8);z-index:1200;padding:24px}
+    .lightbox.open{display:flex}
+    .lightbox-inner{width:min(95vw,1200px);max-height:90vh;position:relative;padding:8px}
+    .lightbox-inner img{width:100%;height:auto;display:block;border-radius:var(--radius-sm);box-shadow:0 20px 50px rgba(0,0,0,0.5);max-height:85vh;object-fit:contain}
+    .lightbox-close{position:absolute;top:8px;right:8px;background:var(--bg-white);border-radius:var(--radius-full);width:36px;height:36px;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,.15);border:0}
+    .lightbox-nav{position:absolute;top:50%;transform:translateY(-50%);color:var(--text-light);font-size:32px;cursor:pointer;padding:8px;background:rgba(0,0,0,0.3);border-radius:var(--radius-full);width:44px;height:44px;display:flex;align-items:center;justify-content:center}
+    .lightbox-prev{left:12px}
+    .lightbox-next{right:12px}
+    @media (max-width:1024px){.gallery-grid{grid-template-columns:repeat(2,1fr)} .lightbox-nav{font-size:26px;width:40px;height:40px}}
+    @media (max-width:650px){.gallery-grid{grid-template-columns:1fr;gap:12px}.gallery-grid img{aspect-ratio:3/2}.lightbox-inner{width:95vw;padding:6px}.lightbox-prev{left:6px}.lightbox-next{right:6px}.lightbox-nav{font-size:22px;width:36px;height:36px}}
+
+    /* Kde nás najdete (scoped to this section) */
+    .where-section{padding:40px 0}
+    .where-section .where-container{max-width:1100px;margin:0 auto;display:flex;gap:40px;align-items:center}
+    .where-section .contact-side{flex:1}
+    .where-section .section-title{color:var(--text-dark);text-transform:uppercase;font-size:24px;font-weight:var(--font-extrabold);margin-bottom:20px;letter-spacing:1px}
+    .where-section .location-info{display:flex;gap:15px;margin-bottom:18px;align-items:center}
+    .where-section .icon-pin{width:28px;height:28px;color:var(--accent);flex-shrink:0}
+    .where-section .location-text h3{color:var(--text-dark);font-size:20px;margin-bottom:6px}
+    .where-section .location-text p{color:#666;font-size:15px;line-height:1.4}
+    .where-section .location-note{color:#bbb;font-size:15px;margin-top:6px}
+    .where-section .opening-hours{background-color:#e2e8f0;border-radius:var(--radius-md);padding:20px}
+    .where-section .hours-title{display:flex;align-items:center;gap:10px;font-weight:var(--font-bold);color:var(--text-dark);margin-bottom:14px;font-size:15px}
+    .where-section .hours-row{display:flex;justify-content:space-between;font-size:15px;margin-bottom:10px;color:#444}
+    .where-section .hours-row:last-child{margin-bottom:0}
+    .where-section .hours-label{font-weight:500}
+    .where-section .hours-value{font-weight:var(--font-bold)}
+    .where-section .hours-note{font-style:italic;color:#888}
+    .where-section .promo-side{flex:1}
+    .where-section .promo-card{background:linear-gradient(135deg,#004d40 0%,#0a2472 100%);border-radius:16px;padding:28px;color:var(--text-light);box-shadow:0 10px 30px rgba(10,36,114,0.15);overflow:hidden}
+    .where-section .badge{background:#00d2be;color:#000;display:inline-block;padding:5px 12px;border-radius:var(--radius-lg);font-size:15px;font-weight:var(--font-extrabold);text-transform:uppercase;margin-bottom:12px}
+    .where-section .promo-card h3{font-size:22px;margin-bottom:8px}
+    .where-section .promo-highlight{font-size:20px;font-weight:800;color:#00d2be;text-transform:uppercase}
+    @media (max-width:850px){.where-section .where-container{flex-direction:column}.where-section .contact-side,.where-section .promo-side{width:100%}}
+
+    /* How-to section styles (scoped) */
+    .howto-container{max-width:1100px;margin:0 auto;padding:32px 0}
+    .howto-section-title{text-align:center;color:#0d2d44;text-transform:uppercase;font-size:28px;font-weight:var(--font-extrabold);margin-bottom:32px;letter-spacing:1px}
+    .howto-cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:25px;margin-bottom:24px}
+    .howto-info-card{background:var(--bg-white);border-radius:15px;padding:28px 18px;text-align:center;box-shadow:0 4px 15px rgba(0,0,0,0.05);position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;transition:transform var(--transition-fast),box-shadow var(--transition-fast)}
+    .howto-info-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--accent);border-top-left-radius:15px;border-top-right-radius:15px}
+    .howto-info-card svg{width:40px;height:40px;stroke:#cccccc;fill:none;stroke-width:1.5;margin-bottom:18px;transition:stroke var(--transition-fast),transform var(--transition-fast)}
+    .howto-info-card img{width:40px;height:40px;margin-bottom:18px;transition:transform var(--transition-fast)}
+    .howto-info-card:hover{transform:translateY(-8px);box-shadow:0 12px 30px rgba(13,45,68,0.12);cursor:pointer}
+    .howto-info-card:focus-within,.howto-info-card:focus{transform:translateY(-8px);box-shadow:0 12px 30px rgba(13,45,68,0.12);outline:3px solid rgba(0,168,150,0.15)}
+    .howto-info-card:hover svg{stroke:var(--accent);transform:scale(1.06)}
+    .howto-info-card:hover img{transform:scale(1.06)}
+    .howto-info-card:hover .howto-card-value{color:#007a63}
+    .howto-card-label{text-transform:uppercase;color:#aaaaaa;font-size:15px;font-weight:700;letter-spacing:1px;margin-bottom:8px}
+    .howto-card-value{color:#1a2b4b;font-size:20px;font-weight:800;margin-bottom:8px}
+    .howto-card-subtext{color:#999;font-size:15px;font-style:italic}
+    .howto-bank-info{background:var(--bg-white);border-radius:15px;padding:24px;box-shadow:0 4px 15px rgba(0,0,0,0.05);border:1px dashed #ccc}
+    .howto-bank-header{display:flex;align-items:center;gap:10px;color:#0d2d44;font-weight:700;margin-bottom:16px;font-size:16px}
+    .howto-info-icon-blue{width:20px;height:20px;color:#3b82f6}
+    .howto-bank-details{display:flex;justify-content:space-between;align-items:flex-end;padding-left:10px}
+    .howto-account-label{color:#bbbbbb;text-transform:uppercase;font-size:15px;font-weight:700;margin-bottom:6px}
+    .howto-account-number{color:#1a2b4b;font-size:22px;font-weight:800}
+    .howto-bank-note{max-width:320px;color:#aaaaaa;font-size:15px;line-height:1.4;text-align:right}
+    @media (max-width:900px){.howto-cards-grid{grid-template-columns:1fr}.howto-bank-details{flex-direction:column;align-items:flex-start;gap:12px;padding-left:0}.howto-bank-note{text-align:left}}
+
+    /* Hover for equipment/feature cards inside the page grids (e.g. vybavení) */
+    .grid > .bg-white,
+    .grid > .bg-\[\#fffbeb\] {
+      transition: transform .22s cubic-bezier(.2,.9,.3,1), box-shadow .22s ease, border-color .18s ease;
+    }
+    .grid > .bg-white:hover,
+    .grid > .bg-\[\#fffbeb\]:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 50px rgba(0,0,0,.12);
+      cursor: pointer;
+    }
+    .grid > .bg-white:hover {
+      border-color: #006e6e; /* slightly darker teal on hover for white cards */
+    }
+
+    
+    /* New steps + CTA design (inspired by provided example) */
+    .contact-cta { font-family: 'Inter', sans-serif; }
+    
+    /* Hero image */
+    #hero-img{position:relative;min-height:300px;overflow:hidden;border-radius:var(--radius-md)}
+    #hero-img .hero-image{width:100%;height:100%;object-fit:cover;display:block;position:absolute;top:0;left:0}
+
+    /* Základní reset pro sekci kroků */
+    .steps-section {
+      background-color: #f4f7f9;
+      padding: 60px 20px;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .steps-section h2 { color:#1a2b4b; text-transform:uppercase; letter-spacing:1px; margin-bottom:40px; font-size:26px; }
+    .steps-container{ display:flex; justify-content:space-between; max-width:1100px; margin:0 auto; position:relative; gap:20px; }
+    .steps-container::before{ content:''; position:absolute; top:36px; left:40px; right:40px; height:1px; background:#d1d8e0; z-index:1 }
+    .step{ flex:1; z-index:2; padding:0 10px; }
+    .step-number{ width:50px; height:50px; background:var(--bg-white); border:2px solid var(--accent); color:var(--accent); border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:var(--font-bold); margin:0 auto 14px; }
+
+    /* Hover / interaction */
+    .step, .step-number {
+      transition: transform .18s ease, box-shadow .18s ease, background-color .18s ease, border-color .18s ease, color .18s ease;
+      will-change: transform, box-shadow;
+    }
+    .step:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 24px rgba(15,23,42,0.08);
+    }
+    .step:focus-within {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 20px rgba(15,23,42,0.06);
+    }
+    .step:hover .step-number, .step:focus-within .step-number {
+      background: var(--accent);
+      color: var(--text-light);
+      border-color: var(--accent);
+      transform: scale(1.06);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.06);
+    }
+    /* keyboard focus for accessibility */
+    .step-number:focus {
+      outline: 3px solid rgba(13,148,136,0.18);
+      outline-offset: 4px;
+    }
+    .step-title{ color:#1a2b4b; font-weight:var(--font-bold); margin-bottom:8px; font-size:16px }
+    .step-description{ color:#666; font-size:15px; line-height:1.4 }
+
+    /* CTA sekce — default for other pages (if used without --site modifier) */
+    .cta-section{ background:var(--color-secondary); color:var(--text-light); padding:60px 20px; text-align:center; border-radius:var(--radius-md) }
+    .cta-section h2{ color:var(--text-light); font-size:28px; margin-bottom:16px; text-transform:uppercase; letter-spacing:1px }
+    .cta-section .cta-text{ font-size:16px; margin-bottom:28px; opacity:0.95; max-width:800px; margin-left:auto; margin-right:auto }
+    .cta-section .contact-info{ display:flex; justify-content:center; gap:36px; flex-wrap:wrap }
+    .cta-section .contact-item{ display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--text-light); font-size:18px; font-weight:var(--font-bold); transition:opacity .22s }
+    .cta-section .contact-item:hover{ opacity:.85 }
+    .cta-section .icon{ width:24px; height:24px; stroke:var(--accent); fill:none; stroke-width:2 }
+
+    @media (max-width:768px){
+      .steps-container{ flex-direction:column; gap:36px }
+      .steps-container::before{ display:none }
+      .contact-info{ flex-direction:column; gap:16px }
+    }
+  
+
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+    .faq-container { max-width: 900px; margin: 2.5rem auto; }
+    .faq-item { background: var(--bg-white); border-radius: var(--radius-sm); box-shadow: 0 1px 4px rgba(0,0,0,0.06); padding: 1.25rem; cursor: pointer; }
+    .faq-item + .faq-item { margin-top: 0.75rem; }
+    .faq-header { display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+    .faq-item h3 { color: var(--text-dark); font-weight: var(--font-bold); margin: 0; }
+    .chevron { transition: transform 0.28s ease; flex-shrink:0; }
+    .faq-content { max-height: 0; overflow: hidden; transition: max-height 0.32s ease-out, margin-top 0.28s ease; }
+    .faq-item.active .faq-content { max-height: 320px; margin-top: 1rem; }
+    .faq-item.active .chevron { transform: rotate(180deg); }
+    /* small responsive tweaks */
+    @media (min-width: 768px) { .faq-title { font-size: 2rem; } }
+  
+ 
+    :root{--accent:#00a19b;--hero:#002d72}
+    body{font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:#f7f7fb;margin:0}
+    .hero-bg{background:var(--hero);color:var(--text-light);padding:10rem 1rem 18rem;text-align:center}
+    .hero-title{font-weight:var(--font-extrabold);letter-spacing: -0.02em;margin:0 0 .75rem;font-size:2.25rem}
+    @media(min-width:768px){.hero-title{font-size:3rem}}
+    .hero-sub{opacity:.95;max-width:56rem;margin:0 auto;color:rgba(255,255,255,.92)}
+    .cards-wrap{max-width:86rem;margin:0 auto;padding:0 1rem;transform:translateY(-1rem);position:relative;z-index:2}
+    .card{background:var(--bg-white);border-radius:1.5rem;padding:2rem;box-shadow:0 10px 30px rgba(6,11,15,.06);display:flex;flex-direction:column;gap:1rem;border-bottom:8px solid var(--accent);transition:transform var(--transition-fast)}
+    .card:hover{transform:translateY(-6px)}
+    .icon-circle{width:56px;height:56px;border-radius:var(--radius-md);display:grid;place-items:center;background:#f0fdfa;color:var(--accent);font-size:1.25rem}
+    .cards-grid{display:grid;gap:1.5rem}
+    @media(min-width:768px){.cards-grid{grid-template-columns:repeat(3,1fr)}}
+    .contact-section{max-width:86rem;margin:2rem auto;padding:0 1rem;position:relative;z-index:1}
+    .contact-grid{display:grid;gap:2rem}
+    @media(min-width:900px){.contact-grid{grid-template-columns:1fr 420px;align-items:start}}
+    form label{display:block;margin-bottom:.35rem;font-weight:600}
+    form input,form textarea{width:100%;padding:.65rem .75rem;border-radius:.6rem;border:1px solid #e6e9ef;background:var(--bg-white)}
+    .hp{position:absolute;left:-9999px}
+
+    /* utility classes used in markup */
+    .card-title{margin:0;font-size:1.125rem;font-weight:var(--font-bold)}
+    .card-desc{color:#556270;margin:0.25rem 0 1rem}
+    .contact-link{margin-top:auto;font-weight:var(--font-bold);font-size:1.25rem;color:var(--accent);text-decoration:none}
+    .muted{color:#88929a;font-style:italic}
+
+    /* Responsive tweaks */
+    @media(max-width:480px){
+      .hero-bg{padding:5rem 1rem 10rem}
+      .hero-title{font-size:1.5rem}
+      .cards-wrap{transform:translateY(-1.5rem);padding:0 0.75rem}
+      .card{padding:1rem;border-radius:1rem}
+      .icon-circle{width:44px;height:44px;font-size:1rem;border-radius:10px}
+      .cards-grid{gap:1rem}
+      .contact-section{margin:1rem auto}
+      .contact-grid{gap:1rem}
+      .contact-link{font-size:1.1rem}
+    }
+    /* Hover and accent tweaks */
+    .map-address-box{transition:transform var(--transition-fast),box-shadow var(--transition-fast),border-color var(--transition-fast)}
+    .map-address-box i{color:var(--accent);transition:color var(--transition-fast)}
+    .map-address-box:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(6,11,15,.08);border-color:var(--accent)}
+    .map-address-box:hover i{color:var(--accent)}
+    .opening-hours-card{transition:transform var(--transition-fast),box-shadow var(--transition-fast)}
+    .opening-hours-card:hover{transform:translateY(-4px);box-shadow:0 14px 36px rgba(6,11,15,.09)}
+    /* Billing / fakturační údaje */
+    .billing-card{background:var(--bg-white);border-radius:1.25rem;padding:1.25rem;border:1px solid var(--border-color-light);box-shadow:0 8px 30px rgba(6,11,15,.06);transition:transform var(--transition-fast),box-shadow var(--transition-fast),border-color var(--transition-fast)}
+    .billing-grid{display:grid;gap:1rem}
+    @media(min-width:640px){.billing-grid{grid-template-columns:repeat(2,1fr);gap:1.5rem}}
+    .billing-label{color:#94a3b8;font-size:0.9375rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.25rem}
+    .billing-value{color:#0b1f2a;font-size:1.125rem;font-weight:800}
+    .billing-value.bank{color:var(--accent)}
+    /* Hover effects for billing items */
+    .billing-grid > div{padding:.6rem;border-radius:.75rem;transition:transform var(--transition-fast),box-shadow var(--transition-fast),background var(--transition-fast),border-color var(--transition-fast);border:1px solid transparent}
+    .billing-grid > div:hover{transform:translateY(-6px);box-shadow:0 12px 30px rgba(6,11,15,.06);background:#f8fbfb;border-color:#eef3f6}
+    .billing-value.bank:hover{color: #007f78}
+    /* Hover for whole billing card */
+    .billing-card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(6,11,15,.12);border-color:#e6f6f5}
+  
+
+/* =====================================================================
+   STŘÍDÁNÍ BAREV POZADÍ SEKCÍ (alternating section backgrounds)
+   Liché obsahové sekce  (3., 5., 7. …): --bg-2  #D2DDDF
+   Sudé obsahové sekce   (2., 4., 6. …): --bg-1  #F3F6F7  (stejné jako body)
+   Hero je vždy první sekce (nth-of-type 1), takže je automaticky přeskočen.
+   Technika ::before s calc(50% - 50vw) rozšíří barevný pruh na celou šířku
+   viewportu i u sekcí omezených třídou .container.
+   ===================================================================== */
+
+/* 1. Přidaj position a isolation context na všechny ne-hero sekce uvnitř <main> */
+main > section:not([class*="hero"]) {
+  position: relative;
+  isolation: isolate; /* stacking context: z-index:-1 pseudo-element zůstane
+                         za obsahem, ale před vlastním pozadím sekce */
+}
+
+/* Ensure destinations section shows image on the left and text on the right on desktop
+   and make the image fill the full height of the text column (don't shrink). */
+@media (min-width:900px){
+  .destinations-section .destinations-split{
+    display:flex !important;
+    flex-direction:row !important;
+    align-items:stretch !important; /* stretch columns to same height */
+    gap:2rem
+  }
+
+  /* let the image column take ~45% width but allow it to stretch to match text height */
+  .destinations-section .dest-image{
+    flex:0 0 45% !important;
+    max-width:45% !important;
+    order:0 !important;
+    overflow:hidden;
+    border-radius:12px;
+    background:transparent !important;
+    padding:0 !important;
+  }
+
+  /* make the actual <img> cover the full height of its flex container */
+  .destinations-section .dest-image img{
+    width:100% !important;
+    height:100% !important; /* fill parent height */
+    display:block;
+    object-fit:cover; /* crop as needed without distortion */
+    object-position:left center !important; /* align the artwork to the left so map is visible */
+    border-radius:12px; /* match container rounding */
+  }
+
+  .destinations-section .dest-list{flex:1 1 55% !important;order:1 !important;padding:0}
+}
+
+
+/* 2. Pseudo-element roztáhne barvu pozadí na 100vw */
+main > section:not([class*="hero"])::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(50% - 50vw);   /* dosáhne k levému okraji viewportu */
+  right: calc(50% - 50vw);  /* dosáhne k pravému okraji viewportu */
+  z-index: -1;
+  background-color: var(--section-bg, var(--bg-1));
+}
+
+/* 3. Přidělení barev — sudé sekce: bg-1, liché (ne první) sekce: bg-2 */
+main > section:nth-of-type(2n):not([class*="hero"]) {
+  --section-bg: var(--bg-1);
+  background-color: var(--bg-1);
+}
+
+main > section:nth-of-type(2n+1):not([class*="hero"]):not(:first-of-type) {
+  --section-bg: var(--bg-2);
+  background-color: var(--bg-2);
+}
