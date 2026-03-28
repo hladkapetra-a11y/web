@@ -1455,7 +1455,7 @@ a:focus,button:focus,input:focus{outline:3px solid rgba(0,149,140,.18);outline-o
     .contact-cta { font-family: 'Inter', sans-serif; }
     
     /* Hero image */
-    #hero-img{position:relative;min-height:300px;overflow:hidden;border-radius:var(--radius-md)}
+    #hero-img{position:relative;min-height:300px;overflow:hidden;border-radius:0}
     #hero-img .hero-image{width:100%;height:100%;object-fit:cover;display:block;position:absolute;top:0;left:0}
 
     /* Základní reset pro sekci kroků */

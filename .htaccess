@@ -7,3 +7,34 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME}.html -f
 RewriteRule ^(.*)$ $1.html [L]
+
+# Optimize browser caching for PageSpeed Insights
+<IfModule mod_expires.c>
+  ExpiresActive On
+  
+  # Images & Fonts
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/gif "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType image/x-icon "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+  
+  # CSS & Javascript
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType text/javascript "access plus 1 month"
+  
+  # Default
+  ExpiresDefault "access plus 2 days"
+</IfModule>
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.(jpeg|jpg|png|gif|webp|svg|ico|woff2)$">
+    Header set Cache-Control "max-age=31536000, public"
+  </FilesMatch>
+  <FilesMatch "\.(css|js)$">
+    Header set Cache-Control "max-age=2592000, public"
+  </FilesMatch>
+</IfModule>
